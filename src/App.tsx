@@ -8,7 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import JoinNetwork from "./pages/JoinNetwork";
+import JoinNetwork from "@/pages/JoinNetwork";
 import SocialConnect from "./pages/SocialConnect";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
