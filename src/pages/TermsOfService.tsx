@@ -1,55 +1,112 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+
+const GOLD = "#C9A227";
+
+const Section = ({
+  title,
+  children,
+  index,
+}: {
+  title: string;
+  children: React.ReactNode;
+  index: number;
+}) => {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <motion.section
+      layout
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05 }}
+      className="
+        rounded-xl border border-[#C9A227]/20
+        bg-gradient-to-br from-[#0b0b0b] to-black
+        shadow-[0_0_25px_rgba(201,162,39,0.12)]
+      "
+    >
+      {/* HEADER */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left"
+      >
+        <h2 className="text-lg font-semibold border-l-4 border-[#C9A227] pl-3">
+          {title}
+        </h2>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ChevronDown className="text-[#C9A227]" />
+        </motion.span>
+      </button>
+
+      {/* CONTENT */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="px-6 pb-5 text-sm leading-relaxed text-white/90"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.section>
+  );
+};
+
 const TermsOfService = () => {
   return (
-    <section className="bg-[#021946] text-white min-h-[60vh] pt-24 pb-16">
-      <div className="max-w-4xl mx-auto px-6 fade-in-up">
-        {/* Header */}
-        <header className="mb-10">
-          <p className="text-xs md:text-sm text-white/70 mb-2">
+    <section className="bg-black text-white min-h-[60vh] pt-28 pb-20">
+      <div className="max-w-4xl mx-auto px-6">
+
+        {/* GOLD TOP DIVIDER */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mb-10" />
+
+        {/* HEADER */}
+        <header className="mb-12">
+          <p className="text-xs md:text-sm text-white/60 mb-2">
             Last updated: {new Date().toLocaleDateString("en-IN")}
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold">
-            Terms of Service
+            Terms of <span className="text-[#C9A227]">Service</span>
           </h1>
-          <div className="mt-3 h-px w-16 bg-[#f4c869]" />
+          <div className="mt-4 h-[2px] w-20 bg-[#C9A227]" />
         </header>
 
-        {/* Content card */}
-        <div className="bg-[#031f5c]/80 border border-white/10 rounded-2xl p-6 md:p-8 shadow-lg shadow-black/30 space-y-8 text-sm leading-relaxed text-white/90">
-          {/* 1. Acceptance of Terms */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              1. Acceptance of Terms
-            </h2>
+        {/* CONTENT */}
+        <div className="space-y-5">
+
+          <Section title="1. Acceptance of Terms" index={0}>
             <p>
               By accessing or using any Vernex website, service, platform, or
               SaaS product, you agree to these Terms of Service (“Terms”). If
               you do not agree, please stop using our services immediately.
             </p>
-          </section>
+          </Section>
 
-          {/* 2. About Vernex */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              2. About Vernex
-            </h2>
+          <Section title="2. About Vernex" index={1}>
             <p>
               “Vernex”, “we”, “us”, or “our” refers to Vernex Digital Solutions,
               providing digital, web, marketing, creative, automation, and
               SaaS-based services.
             </p>
-          </section>
+          </Section>
 
-          {/* 3. Use of Our Services */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              3. Use of Our Services
-            </h2>
+          <Section title="3. Use of Our Services" index={2}>
             <p>
               You agree to use our services only for lawful purposes and in
               compliance with these Terms.
             </p>
             <p>You must not:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
+            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
               <li>Attempt unauthorized access</li>
               <li>Interfere with service integrity</li>
               <li>Use our services to harm, abuse, or exploit others</li>
@@ -58,13 +115,9 @@ const TermsOfService = () => {
             <p className="mt-1">
               We may suspend or restrict access if misuse is detected.
             </p>
-          </section>
+          </Section>
 
-          {/* 4. Accounts & Responsibilities */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              4. Accounts &amp; Responsibilities
-            </h2>
+          <Section title="4. Accounts & Responsibilities" index={3}>
             <p>
               When you create an account with Vernex, you agree to provide
               accurate information, maintain confidentiality of your login
@@ -74,46 +127,32 @@ const TermsOfService = () => {
               We are not liable for unauthorized account activity caused by user
               negligence.
             </p>
-          </section>
+          </Section>
 
-          {/* 5. Payments & Subscriptions */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              5. Payments &amp; Subscriptions (If Applicable)
-            </h2>
-            <p>For paid services or SaaS tools:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
+          <Section title="5. Payments & Subscriptions (If Applicable)" index={4}>
+            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
               <li>Fees must be paid as per the chosen plan</li>
               <li>Payments are non-refundable unless stated otherwise</li>
               <li>Subscriptions may auto-renew unless cancelled</li>
               <li>We may modify pricing with prior notice</li>
             </ul>
-          </section>
+          </Section>
 
-          {/* 6. Intellectual Property */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              6. Intellectual Property
-            </h2>
+          <Section title="6. Intellectual Property" index={5}>
             <p>
               All content, designs, code, software, branding, and materials on
               Vernex platforms are the property of Vernex.
             </p>
-            <p>You may not:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
+            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
               <li>Copy</li>
               <li>Modify</li>
               <li>Redistribute</li>
               <li>Sell</li>
               <li>Reverse engineer</li>
             </ul>
-          </section>
+          </Section>
 
-          {/* 7. User Content */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              7. User Content
-            </h2>
+          <Section title="7. User Content" index={6}>
             <p>
               If you upload or submit content to our services, you grant Vernex
               a license to store, use, and display the content for service
@@ -123,109 +162,69 @@ const TermsOfService = () => {
               You confirm the content does not violate laws or third-party
               rights. You are responsible for the content you submit.
             </p>
-          </section>
+          </Section>
 
-          {/* 8. Third-Party Services */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              8. Third-Party Services
-            </h2>
+          <Section title="8. Third-Party Services" index={7}>
             <p>
               Vernex may integrate tools from third parties such as analytics
-              providers, payment gateways, CRM systems, and hosting partners. We
-              are not responsible for third-party actions or policies.
+              providers, payment gateways, CRM systems, and hosting partners.
             </p>
-          </section>
+          </Section>
 
-          {/* 9. Service Availability */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              9. Service Availability
-            </h2>
+          <Section title="9. Service Availability" index={8}>
             <p>
               We strive for continuous uptime but do not guarantee uninterrupted
-              access, error-free operation, or zero downtime. Maintenance,
-              updates, or issues may temporarily affect service availability.
+              access, error-free operation, or zero downtime.
             </p>
-          </section>
+          </Section>
 
-          {/* 10. Limitation of Liability */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              10. Limitation of Liability
-            </h2>
-            <p>To the maximum extent permitted by law:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>
-                Vernex is not liable for indirect, incidental, or consequential
-                damages
-              </li>
-              <li>Use of services is at your own risk</li>
-              <li>
-                Vernex is not responsible for data loss, interruptions, or
-                unauthorized access
-              </li>
+          <Section title="10. Limitation of Liability" index={9}>
+            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+              <li>Indirect or consequential damages</li>
+              <li>Use of services at your own risk</li>
+              <li>Data loss or unauthorized access</li>
             </ul>
             <p className="mt-1">
-              Our liability is limited to the amount paid (if any) for our
-              services in the last 12 months.
+              Liability is limited to the amount paid in the last 12 months.
             </p>
-          </section>
+          </Section>
 
-          {/* 11. Termination */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              11. Termination
-            </h2>
+          <Section title="11. Termination" index={10}>
             <p>
-              We may suspend or terminate your access if you violate these
-              Terms, if fraudulent or harmful activity is detected, or if
-              required by law or security reasons. You may stop using our
-              services at any time.
+              We may suspend or terminate access if Terms are violated, fraud is
+              detected, or legal requirements demand it.
             </p>
-          </section>
+          </Section>
 
-          {/* 12. Changes to Terms */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              12. Changes to Terms
-            </h2>
+          <Section title="12. Changes to Terms" index={11}>
             <p>
-              We may update these Terms occasionally. The updated version will
-              be posted on our website with a revised “Last Updated” date.
-              Continued use of our services means you accept the updated Terms.
+              Updated Terms will be posted with a revised “Last Updated” date.
+              Continued use indicates acceptance.
             </p>
-          </section>
+          </Section>
 
-          {/* 13. Governing Law */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              13. Governing Law
-            </h2>
+          <Section title="13. Governing Law" index={12}>
             <p>
-              These Terms are governed by the laws applicable in India. Any
-              disputes will be handled under competent courts within the
-              applicable jurisdiction.
+              These Terms are governed by the laws of India.
             </p>
-          </section>
+          </Section>
 
-          {/* 14. Contact Us */}
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold border-l-4 border-[#f4c869] pl-3">
-              14. Contact Us
-            </h2>
-            <p>If you have any questions regarding these Terms, contact us at:</p>
+          <Section title="14. Contact Us" index={13}>
             <p>
               📧{" "}
               <a
                 href="mailto:vernex.main@gmail.com"
-                className="underline hover:text-[#f4c869]"
+                className="underline hover:text-[#C9A227]"
               >
                 vernex.main@gmail.com
               </a>
             </p>
-          </section>
+          </Section>
+
         </div>
+
+        {/* GOLD BOTTOM DIVIDER */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mt-14" />
       </div>
     </section>
   );

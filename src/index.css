@@ -2,89 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
-   All colors MUST be HSL.
-*/
+/* =========================================================
+   VERNEX – CORPORATE BLACK / WHITE / GOLD DESIGN SYSTEM
+   =========================================================
+   • Pages: Black
+   • Text: White
+   • Accent: Gold
+   • Navbar/Footer: White (handled in components)
+   • Cards: Dark surface
+   ========================================================= */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 221 77% 20%;
+    /* ================= Core Theme ================= */
+    --background: 0 0% 6%;          /* Black page background */
+    --foreground: 0 0% 100%;        /* White text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 221 77% 20%;
+    --card: 0 0% 9%;                /* Card surface */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 221 77% 20%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 221 77% 20%;
+    /* ================= Brand Colors ================= */
+    --primary: 0 0% 0%;             /* Pure black */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 70% 15%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 45%;
+    --accent: 46 47% 55%;           /* Gold */
+    --accent-foreground: 0 0% 0%;
 
-    --accent: 46 47% 55%;
-    --accent-foreground: 221 77% 20%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
     --ring: 46 47% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom Vernex Design Tokens */
-    --vernex-royal: 221 77% 20%;
+    /* ================= Vernex Tokens ================= */
+    --vernex-black: 0 0% 0%;
+    --vernex-white: 0 0% 100%;
     --vernex-gold: 46 47% 55%;
-    --vernex-navy: 220 70% 12%;
-    --vernex-navy-light: 220 60% 18%;
+    --vernex-gold-soft: 46 47% 55% / 0.15;
 
-    /* Gradients */
+    /* ================= Gradients ================= */
     --gradient-hero: linear-gradient(
-      135deg,
-      hsl(221, 77%, 20%) 0%,
-      hsl(220, 70%, 15%) 100%
+      180deg,
+      hsl(0 0% 5%) 0%,
+      hsl(0 0% 0%) 100%
     );
+
     --gradient-gold: linear-gradient(
       135deg,
-      hsl(46, 47%, 55%) 0%,
-      hsl(46, 70%, 65%) 100%
-    );
-    --gradient-overlay: linear-gradient(
-      180deg,
-      rgba(10, 30, 89, 0.95) 0%,
-      rgba(10, 30, 89, 0.8) 100%
+      hsl(46 47% 55%) 0%,
+      hsl(46 65% 65%) 100%
     );
 
-    /* Shadows */
-    --shadow-gold: 0 10px 40px -10px hsl(46 47% 55% / 0.3);
-    --shadow-card: 0 4px 20px rgba(10, 30, 89, 0.08);
-    --shadow-elevated: 0 20px 60px rgba(10, 30, 89, 0.15);
-    --shadow-subtle: 0 2px 8px rgba(10, 30, 89, 0.04);
-    --shadow-medium: 0 8px 30px rgba(10, 30, 89, 0.12);
+    /* ================= Shadows ================= */
+    --shadow-gold: 0 12px 40px -10px hsl(46 47% 55% / 0.35);
+    --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.6);
+    --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.8);
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.4);
 
-    /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* ================= Animations ================= */
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-
-  /* NOTE: Dark mode removed. If you previously had a `.dark { ... }` block, it has been intentionally deleted.
-     If you want to re-enable them later, restore the block and reintroduce toggling logic. */
 }
 
 @layer base {
@@ -93,73 +83,104 @@
   }
 
   body {
-    /* Use the HSL token via var — other components call hsl(var(--background)) where needed */
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     @apply font-sans antialiased;
-    letter-spacing: -0.011em;
-    line-height: 1.6;
+    letter-spacing: -0.01em;
+    line-height: 1.65;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading font-semibold;
     letter-spacing: -0.02em;
     line-height: 1.2;
+    color: hsl(var(--foreground));
   }
 
   p {
-    @apply leading-relaxed;
+    color: hsl(var(--muted-foreground));
   }
 }
 
-/* Utilities and small helpers */
+/* ================= Utilities ================= */
+@layer utilities {
+  /* Gold divider line used across navbar, footer, sections */
+  .gold-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--accent)),
+      transparent
+    );
+  }
+   /* Strong gold divider (for footer / hero separation) */
+  .gold-divider-strong {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--accent)),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .gold-divider {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--vernex-gold)),
+      transparent
+    );
+  }
+}
+
 @layer utilities {
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-accent via-accent to-accent/70 bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .surface {
+    background-color: hsl(var(--card));
+  }
+
+  .hover-gold {
+    @apply transition-colors duration-200 hover:text-accent;
   }
 
   .hover-lift {
-    @apply transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-[var(--shadow-elevated)];
+    @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[var(--shadow-elevated)];
   }
 
   .hover-glow {
-    @apply transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,169,77,0.4)];
+    @apply transition-all duration-500 hover:shadow-[var(--shadow-gold)];
   }
 
-  .section-divider {
-    @apply relative;
-  }
-
-  .section-divider::before {
-    content: '';
-    @apply absolute left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent;
-  }
-
-  /**
-   * glass-effect: DO NOT use `@apply bg-background/80` (invalid: bg-background is not a Tailwind color).
-   * Instead we compute background using the CSS variable and alpha directly.
-   */
   .glass-effect {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background-color: hsl(var(--background) / 0.8);
-    border: 1px solid hsl(var(--border) / 0.5);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background-color: hsl(var(--card) / 0.75);
+    border: 1px solid hsl(var(--border) / 0.6);
   }
 
-  /* Fade-in-up animation */
+  /* Fade in up */
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  /* Alias so you can use className="fade-in-up" */
-  .fade-in-up {
-    @apply animate-fade-in-up;
   }
 
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(32px);
     }
     to {
       opacity: 1;
@@ -167,28 +188,13 @@
     }
   }
 
+  /* Floating effect */
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .animate-shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(201, 169, 77, 0.1),
-      transparent
-    );
-    background-size: 200% 100%;
-    animation: shimmer 3s infinite;
-  }
-
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
   }
 }

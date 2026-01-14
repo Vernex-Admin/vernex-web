@@ -8,18 +8,20 @@ import {
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const WHATSAPP_LINK = "https://wa.me/919789912805";
 const INSTAGRAM_LINK =
   "https://www.instagram.com/vernex.in?igsh=MWp6am1vaWoxYjY1NQ==";
 const WEBSITE_LINK = "http://vernex.in/";
-const LINKEDIN_LINK = "https://linkedin.com/"; // update with your real LinkedIn page
-const EMAIL = "vernexofficial@gmail.com";
+const LINKEDIN_LINK =
+  "https://www.linkedin.com/in/boss-anandaa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app";
+const FACEBOOK_LINK =
+  "https://www.facebook.com/share/1BsBsZcZGP/";
+const EMAIL = "vernexmain@gmail.com";
 const PHONE_NUMBER = "+91 97899 12805";
 const PHONE_NUMBER_TEL = "+919789912805";
 
-// Brand colors
-const BRAND_BLUE = "#0B1F3B";
 const GOLD = "#C9A227";
 
 type LinkItem = {
@@ -32,7 +34,7 @@ const socialLinks: LinkItem[] = [
   { label: "Home – Vernex", href: WEBSITE_LINK, icon: <FaGlobe /> },
   { label: "WhatsApp", href: WHATSAPP_LINK, icon: <FaWhatsapp /> },
   { label: "Instagram", href: INSTAGRAM_LINK, icon: <FaInstagram /> },
-  { label: "Facebook", href: "https://facebook.com/", icon: <FaFacebookF /> },
+  { label: "Facebook", href: FACEBOOK_LINK, icon: <FaFacebookF /> },
   { label: "LinkedIn", href: LINKEDIN_LINK, icon: <FaLinkedinIn /> },
 ];
 
@@ -41,142 +43,119 @@ const SocialConnect: React.FC = () => {
 
   const handleClick = (index: number) => {
     setActiveIndex(index);
-    setTimeout(() => setActiveIndex(null), 1000); // gold for 1s then reset
+    setTimeout(() => setActiveIndex(null), 700);
   };
 
   return (
-    <section className="bg-slate-50 min-h-[80vh]">
-      <div className="mx-auto max-w-6xl px-4 pb-14 pt-32 sm:pt-36">
-        {/* OUTER HERO CARD WITH GOLDEN GLOW */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_0_40px_rgba(201,162,39,0.35)]">
-          {/* NETWORK BACKGROUND IMAGE */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'url("https://wallpapers.com/images/hd/global-network-background-3840-x-2160-y96g3eo2xqfuh7ya.jpg")',
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-          {/* DARK BLUE OVERLAY */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(4,10,25,0.92), rgba(11,31,59,0.94))",
-            }}
-          />
+    <section className="min-h-screen bg-black pt-20 sm:pt-28 pb-16 sm:pb-24">
+      <div className="mx-auto max-w-6xl px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="relative rounded-3xl overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0b0b0b] via-black to-black" />
 
-          {/* GLASS INNER CONTAINER */}
-          <div className="relative z-10 px-4 py-10 sm:px-10 sm:py-12">
-            <div className="rounded-3xl border border-white/15 bg-white/8 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.6)] px-4 py-10 sm:px-8 sm:py-12 text-white">
-              {/* TITLE */}
-              <div className="text-center mb-10">
-                <h1 className="text-3xl sm:text-4xl font-bold tracking-wide">
-                  Connect with us through Social Platforms
+          <motion.div
+            whileHover={{ boxShadow: "0 0 40px rgba(201,162,39,0.45)" }}
+            transition={{ duration: 0.3 }}
+            className="relative z-10 rounded-3xl border border-[rgba(201,162,39,0.55)] p-[1px]"
+          >
+            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#111] to-[#060606] px-5 sm:px-6 py-8 sm:py-14 text-white">
+
+              {/* HEADER */}
+              <div className="text-center mb-8 sm:mb-14">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                  Connect with us through{" "}
+                  <span className="text-[#C9A227]">Social Platforms</span>
                 </h1>
-                <p className="mt-3 text-slate-200 text-sm sm:text-base max-w-2xl mx-auto">
+                <p className="mt-3 sm:mt-4 text-white/70 max-w-2xl mx-auto text-sm sm:text-base">
                   Reach out, collaborate, and stay connected with Vernex across
                   our AI-powered global digital ecosystem.
                 </p>
               </div>
 
-              {/* TOP CIRCLE BUTTONS */}
-              <div className="flex justify-center gap-3 sm:gap-4 mb-12">
+              {/* ICONS — FIXED */}
+              <div className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-14">
                 {socialLinks.map((item, index) => (
-                  <button
-                    key={item.label}
-                    onClick={() => handleClick(index)}
-                    className="flex h-12 w-12 items-center justify-center rounded-full shadow-md hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(201,162,39,0.7)] transition-transform"
-                    style={{
-                      backgroundColor:
-                        activeIndex === index ? GOLD : "#ffffff",
-                      color:
-                        activeIndex === index ? "#ffffff" : BRAND_BLUE,
-                    }}
-                  >
-                    <span className="text-lg">{item.icon}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* MAIN LONG BUTTONS */}
-              <div className="mx-auto flex max-w-3xl flex-col gap-4">
-                {socialLinks.map((item, index) => (
-                  <a
+                  <motion.a
                     key={item.label}
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
+                    whileHover={{ scale: 1.12 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => handleClick(index)}
-                    className="flex items-center justify-between rounded-full bg-white/95 px-5 py-4 shadow-lg hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(201,162,39,0.7)] transition-transform"
+                    className="h-10 w-10 sm:h-12 sm:w-12 rounded-full flex items-center justify-center bg-white text-black"
                     style={{
-                      color:
-                        activeIndex === index ? GOLD : BRAND_BLUE,
-                      border:
-                        activeIndex === index
-                          ? `2px solid ${GOLD}`
-                          : "2px solid transparent",
+                      backgroundColor:
+                        activeIndex === index ? GOLD : "#ffffff",
                     }}
                   >
-                    <div className="flex items-center gap-4">
+                    {item.icon}
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* MAIN LINKS (UNCHANGED) */}
+              <div className="mx-auto max-w-3xl flex flex-col gap-3 sm:gap-5">
+                {socialLinks.map((item, index) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{
+                      scale: 1.02,
+                      boxShadow: "0 0 25px rgba(201,162,39,0.6)",
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => handleClick(index)}
+                    className="flex items-center rounded-full bg-white px-4 sm:px-6 py-3 sm:py-4"
+                  >
+                    <div className="flex items-center gap-3 sm:gap-4">
                       <div
-                        className="flex h-10 w-10 items-center justify-center rounded-full text-white"
+                        className="h-9 w-9 sm:h-10 sm:w-10 rounded-full flex items-center justify-center text-white"
                         style={{
                           backgroundColor:
-                            activeIndex === index ? GOLD : BRAND_BLUE,
+                            activeIndex === index ? GOLD : "#000",
                         }}
                       >
                         {item.icon}
                       </div>
-                      <span className="font-medium text-base sm:text-lg">
+                      <span className="text-black font-medium text-sm sm:text-lg">
                         {item.label}
                       </span>
                     </div>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
 
-              {/* CONTACT CARDS */}
-              <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-4 sm:flex-row">
-                {/* EMAIL */}
-                <a
+              {/* CONTACT */}
+              <div className="mx-auto mt-8 sm:mt-14 max-w-3xl grid gap-3 sm:gap-5 sm:grid-cols-2">
+                <motion.a
                   href={`mailto:${EMAIL}`}
-                  className="flex flex-1 items-center gap-4 rounded-2xl bg-white px-5 py-5 text-slate-900 shadow-lg hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(0,0,0,0.4)] transition-transform"
+                  whileHover={{ scale: 1.03 }}
+                  className="flex items-center gap-3 rounded-2xl bg-white px-5 py-4 text-black"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600 text-white">
-                    <FaEnvelope className="text-lg" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                      Email Address
-                    </span>
-                    <span className="text-base font-medium">{EMAIL}</span>
-                  </div>
-                </a>
+                  <FaEnvelope />
+                  {EMAIL}
+                </motion.a>
 
-                {/* PHONE */}
-                <a
+                <motion.a
                   href={`tel:${PHONE_NUMBER_TEL}`}
-                  className="flex flex-1 items-center gap-4 rounded-2xl bg-white px-5 py-5 text-slate-900 shadow-lg hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(0,0,0,0.4)] transition-transform"
+                  whileHover={{ scale: 1.03 }}
+                  className="flex items-center gap-3 rounded-2xl bg-white px-5 py-4 text-black"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-600 text-white">
-                    <FaPhoneAlt className="text-lg" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                      Phone
-                    </span>
-                    <span className="text-base font-medium">
-                      {PHONE_NUMBER}
-                    </span>
-                  </div>
-                </a>
+                  <FaPhoneAlt />
+                  {PHONE_NUMBER}
+                </motion.a>
               </div>
+
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
