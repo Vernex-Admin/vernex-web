@@ -22,20 +22,46 @@ const EMAIL = "vernexmain@gmail.com";
 const PHONE_NUMBER = "+91 97899 12805";
 const PHONE_NUMBER_TEL = "+919789912805";
 
-const GOLD = "#C9A227";
+const GOLD = "#D8B36A";
 
 type LinkItem = {
   label: string;
   href: string;
   icon: React.ReactNode;
+  description: string;
 };
 
 const socialLinks: LinkItem[] = [
-  { label: "Home – Vernex", href: WEBSITE_LINK, icon: <FaGlobe /> },
-  { label: "WhatsApp", href: WHATSAPP_LINK, icon: <FaWhatsapp /> },
-  { label: "Instagram", href: INSTAGRAM_LINK, icon: <FaInstagram /> },
-  { label: "Facebook", href: FACEBOOK_LINK, icon: <FaFacebookF /> },
-  { label: "LinkedIn", href: LINKEDIN_LINK, icon: <FaLinkedinIn /> },
+  {
+    label: "Website",
+    href: WEBSITE_LINK,
+    icon: <FaGlobe />,
+    description: "Visit Vernex online for company information, products, services, and updates.",
+  },
+  {
+    label: "WhatsApp",
+    href: WHATSAPP_LINK,
+    icon: <FaWhatsapp />,
+    description: "For direct project enquiries, demo requests, collaborations, and quick communication.",
+  },
+  {
+    label: "Instagram",
+    href: INSTAGRAM_LINK,
+    icon: <FaInstagram />,
+    description: "For brand updates, service posts, product launches, reels, and digital marketing content.",
+  },
+  {
+    label: "Facebook",
+    href: FACEBOOK_LINK,
+    icon: <FaFacebookF />,
+    description: "Follow Vernex updates, service highlights, and business content across Facebook.",
+  },
+  {
+    label: "LinkedIn",
+    href: LINKEDIN_LINK,
+    icon: <FaLinkedinIn />,
+    description: "For company updates, founder-led insights, technology launches, and professional content.",
+  },
 ];
 
 const SocialConnect: React.FC = () => {
@@ -47,37 +73,33 @@ const SocialConnect: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black pt-20 sm:pt-28 pb-16 sm:pb-24">
+    <section className="min-h-screen overflow-x-hidden bg-background pb-16 pt-20 sm:pb-24 sm:pt-28">
       <div className="mx-auto max-w-6xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative rounded-3xl overflow-hidden"
+          className="relative overflow-hidden rounded-lg"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0b0b0b] via-black to-black" />
+          <div className="absolute inset-0 bg-white" />
 
           <motion.div
-            whileHover={{ boxShadow: "0 0 40px rgba(201,162,39,0.45)" }}
+            whileHover={{ boxShadow: "0 18px 44px -24px rgba(11,36,84,0.34)" }}
             transition={{ duration: 0.3 }}
-            className="relative z-10 rounded-3xl border border-[rgba(201,162,39,0.55)] p-[1px]"
+            className="relative z-10 rounded-lg border border-border p-[1px]"
           >
-            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#111] to-[#060606] px-5 sm:px-6 py-8 sm:py-14 text-white">
-
-              {/* HEADER */}
-              <div className="text-center mb-8 sm:mb-14">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                  Connect with us through{" "}
-                  <span className="text-[#C9A227]">Social Platforms</span>
+            <div className="rounded-lg border border-border bg-white px-5 py-8 text-foreground sm:px-6 sm:py-14">
+              <div className="mb-8 text-center sm:mb-14">
+                <h1 className="mx-auto max-w-[18rem] text-2xl font-bold sm:max-w-none sm:text-3xl md:text-4xl">
+                  Connect with <span className="text-primary">Vernex</span>
                 </h1>
-                <p className="mt-3 sm:mt-4 text-white/70 max-w-2xl mx-auto text-sm sm:text-base">
-                  Reach out, collaborate, and stay connected with Vernex across
-                  our AI-powered global digital ecosystem.
+                <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground sm:mt-4 sm:text-base">
+                  Stay updated with our products, services, launches, projects,
+                  and business content across Vernex platforms.
                 </p>
               </div>
 
-              {/* ICONS — FIXED */}
-              <div className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-14">
+              <div className="mb-8 flex justify-center gap-3 sm:mb-14 sm:gap-4">
                 {socialLinks.map((item, index) => (
                   <motion.a
                     key={item.label}
@@ -87,10 +109,9 @@ const SocialConnect: React.FC = () => {
                     whileHover={{ scale: 1.12 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleClick(index)}
-                    className="h-10 w-10 sm:h-12 sm:w-12 rounded-full flex items-center justify-center bg-white text-black"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-primary shadow-[var(--shadow-subtle)] sm:h-12 sm:w-12"
                     style={{
-                      backgroundColor:
-                        activeIndex === index ? GOLD : "#ffffff",
+                      backgroundColor: activeIndex === index ? GOLD : "#ffffff",
                     }}
                   >
                     {item.icon}
@@ -98,8 +119,7 @@ const SocialConnect: React.FC = () => {
                 ))}
               </div>
 
-              {/* MAIN LINKS (UNCHANGED) */}
-              <div className="mx-auto max-w-3xl flex flex-col gap-3 sm:gap-5">
+              <div className="mx-auto flex max-w-3xl flex-col gap-3 sm:gap-5">
                 {socialLinks.map((item, index) => (
                   <motion.a
                     key={item.label}
@@ -108,36 +128,46 @@ const SocialConnect: React.FC = () => {
                     rel="noreferrer"
                     whileHover={{
                       scale: 1.02,
-                      boxShadow: "0 0 25px rgba(201,162,39,0.6)",
+                      boxShadow: "0 16px 38px -26px rgba(216,179,106,0.75)",
                     }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handleClick(index)}
-                    className="flex items-center rounded-full bg-white px-4 sm:px-6 py-3 sm:py-4"
+                    className="flex items-center rounded-lg border border-border bg-white px-4 py-3 shadow-[var(--shadow-card)] sm:px-6 sm:py-4"
                   >
-                    <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div
-                        className="h-9 w-9 sm:h-10 sm:w-10 rounded-full flex items-center justify-center text-white"
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white sm:h-10 sm:w-10"
                         style={{
                           backgroundColor:
-                            activeIndex === index ? GOLD : "#000",
+                            activeIndex === index ? GOLD : "#0B2454",
                         }}
                       >
                         {item.icon}
                       </div>
-                      <span className="text-black font-medium text-sm sm:text-lg">
-                        {item.label}
-                      </span>
+                      <div>
+                        <span className="block text-sm font-semibold text-foreground sm:text-lg">
+                          {item.label}
+                        </span>
+                        <span className="mt-1 block text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                          {item.description}
+                        </span>
+                      </div>
                     </div>
                   </motion.a>
                 ))}
               </div>
 
-              {/* CONTACT */}
-              <div className="mx-auto mt-8 sm:mt-14 max-w-3xl grid gap-3 sm:gap-5 sm:grid-cols-2">
+              <div className="mx-auto mt-8 max-w-3xl rounded-lg border border-border bg-[#F7F9FC] px-5 py-4 text-sm text-muted-foreground">
+                YouTube content for product demos, tutorials, business insights,
+                and service explainers will be added as Vernex publishes more
+                video resources.
+              </div>
+
+              <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-5">
                 <motion.a
                   href={`mailto:${EMAIL}`}
                   whileHover={{ scale: 1.03 }}
-                  className="flex items-center gap-3 rounded-2xl bg-white px-5 py-4 text-black"
+                  className="flex items-center gap-3 rounded-lg border border-border bg-white px-5 py-4 text-foreground shadow-[var(--shadow-card)]"
                 >
                   <FaEnvelope />
                   {EMAIL}
@@ -146,13 +176,12 @@ const SocialConnect: React.FC = () => {
                 <motion.a
                   href={`tel:${PHONE_NUMBER_TEL}`}
                   whileHover={{ scale: 1.03 }}
-                  className="flex items-center gap-3 rounded-2xl bg-white px-5 py-4 text-black"
+                  className="flex items-center gap-3 rounded-lg border border-border bg-white px-5 py-4 text-foreground shadow-[var(--shadow-card)]"
                 >
                   <FaPhoneAlt />
                   {PHONE_NUMBER}
                 </motion.a>
               </div>
-
             </div>
           </motion.div>
         </motion.div>

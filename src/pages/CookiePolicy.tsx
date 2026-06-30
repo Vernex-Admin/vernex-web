@@ -2,8 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const GOLD = "#C9A227";
-
 const Section = ({
   title,
   children,
@@ -22,9 +20,9 @@ const Section = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
       className="
-        rounded-xl border border-[#C9A227]/20
-        bg-gradient-to-br from-[#0b0b0b] to-black
-        shadow-[0_0_25px_rgba(201,162,39,0.12)]
+        rounded-lg border border-border
+        bg-white
+        shadow-[var(--shadow-card)]
       "
     >
       {/* HEADER */}
@@ -32,14 +30,14 @@ const Section = ({
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 text-left"
       >
-        <h2 className="text-lg font-semibold border-l-4 border-[#C9A227] pl-3">
+        <h2 className="border-l-4 border-accent pl-3 text-lg font-semibold">
           {title}
         </h2>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-[#C9A227]" />
+          <ChevronDown className="text-accent" />
         </motion.span>
       </button>
 
@@ -52,7 +50,7 @@ const Section = ({
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="px-6 pb-5 text-sm leading-relaxed text-white/90"
+            className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground"
           >
             {children}
           </motion.div>
@@ -64,23 +62,23 @@ const Section = ({
 
 const CookiePolicy = () => {
   return (
-    <section className="bg-black text-white min-h-[60vh] pt-28 pb-20">
+    <section className="min-h-[60vh] bg-background pt-28 pb-20 text-foreground">
       <div className="max-w-4xl mx-auto px-6">
 
         {/* GOLD TOP DIVIDER */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mb-10" />
+        <div className="gold-divider-strong mb-10" />
 
         {/* HEADER */}
         <header className="mb-12">
-          <p className="text-xs md:text-sm text-white/60 mb-2">
+          <p className="mb-2 text-xs text-muted-foreground md:text-sm">
             Last updated: {new Date().toLocaleDateString("en-IN")}
           </p>
 
           <h1 className="text-3xl md:text-4xl font-semibold">
-            Cookies <span className="text-[#C9A227]">Policy</span>
+            Cookies <span className="text-primary">Policy</span>
           </h1>
 
-          <div className="mt-4 h-[2px] w-20 bg-[#C9A227]" />
+          <div className="mt-4 h-[2px] w-20 bg-accent" />
         </header>
 
         {/* CONTENT */}
@@ -107,11 +105,11 @@ const CookiePolicy = () => {
             <div className="space-y-6">
 
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#C9A227]">
+                <h3 className="font-semibold text-primary">
                   3.1 Essential Cookies
                 </h3>
                 <p>Required for core functions such as:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+                <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
                   <li>Logging in</li>
                   <li>Secure sessions</li>
                   <li>Accessing dashboards</li>
@@ -124,7 +122,7 @@ const CookiePolicy = () => {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#C9A227]">
+                <h3 className="font-semibold text-primary">
                   3.2 Analytics Cookies
                 </h3>
                 <p>
@@ -135,11 +133,11 @@ const CookiePolicy = () => {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#C9A227]">
+                <h3 className="font-semibold text-primary">
                   3.3 Personalization Cookies
                 </h3>
                 <p>Remember preferences like:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+                <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
                   <li>Language</li>
                   <li>Theme (light/dark)</li>
                   <li>Dashboard settings</li>
@@ -147,7 +145,7 @@ const CookiePolicy = () => {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#C9A227]">
+                <h3 className="font-semibold text-primary">
                   3.4 Marketing Cookies
                 </h3>
                 <p>Used only with your consent.</p>
@@ -158,11 +156,11 @@ const CookiePolicy = () => {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#C9A227]">
+                <h3 className="font-semibold text-primary">
                   3.5 Third-Party Cookies
                 </h3>
                 <p>Used by integrated tools such as:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+                <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
                   <li>Analytics platforms</li>
                   <li>Payment providers</li>
                   <li>Embedded video platforms</li>
@@ -196,7 +194,7 @@ const CookiePolicy = () => {
               📧{" "}
               <a
                 href="mailto:vernex.main@gmail.com"
-                className="underline hover:text-[#C9A227]"
+                className="underline hover:text-primary"
               >
                 vernex.main@gmail.com
               </a>
@@ -206,7 +204,7 @@ const CookiePolicy = () => {
         </div>
 
         {/* GOLD BOTTOM DIVIDER */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mt-14" />
+        <div className="gold-divider-strong mt-14" />
       </div>
     </section>
   );

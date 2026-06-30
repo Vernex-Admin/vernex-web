@@ -3,77 +3,57 @@
 @tailwind utilities;
 
 /* =========================================================
-   VERNEX – CORPORATE BLACK / WHITE / GOLD DESIGN SYSTEM
-   =========================================================
-   • Pages: Black
-   • Text: White
-   • Accent: Gold
-   • Navbar/Footer: White (handled in components)
-   • Cards: Dark surface
+   VERNEX CORPORATE DESIGN SYSTEM
+   White-first layout, navy structure, premium gold accents.
    ========================================================= */
 
 @layer base {
   :root {
-    /* ================= Core Theme ================= */
-    --background: 0 0% 6%;          /* Black page background */
-    --foreground: 0 0% 100%;        /* White text */
+    --background: 220 45% 98%;        /* #F7F9FC */
+    --foreground: 221 39% 11%;        /* #111827 */
 
-    --card: 0 0% 9%;                /* Card surface */
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;                /* #FFFFFF */
+    --card-foreground: 221 39% 11%;
 
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 39% 11%;
 
-    /* ================= Brand Colors ================= */
-    --primary: 0 0% 0%;             /* Pure black */
+    --primary: 220 77% 19%;           /* #0B2454 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 42 75% 84%;          /* #F4E4B8 */
+    --secondary-foreground: 220 77% 19%;
 
-    --accent: 46 47% 55%;           /* Gold */
-    --accent-foreground: 0 0% 0%;
+    --accent: 40 56% 63%;             /* #D8B36A */
+    --accent-foreground: 220 77% 19%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 220 45% 96%;
+    --muted-foreground: 215 16% 47%;  /* #64748B */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 46 47% 55%;
+    --border: 220 13% 91%;            /* #E5E7EB */
+    --input: 220 13% 91%;
+    --ring: 40 56% 63%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* ================= Vernex Tokens ================= */
-    --vernex-black: 0 0% 0%;
-    --vernex-white: 0 0% 100%;
-    --vernex-gold: 46 47% 55%;
-    --vernex-gold-soft: 46 47% 55% / 0.15;
+    --vernex-navy: 220 77% 19%;
+    --vernex-deep-navy: 220 81% 13%;
+    --vernex-gold: 40 56% 63%;
+    --vernex-soft-gold: 42 75% 84%;
+    --vernex-soft-bg: 220 45% 98%;
 
-    /* ================= Gradients ================= */
-    --gradient-hero: linear-gradient(
-      180deg,
-      hsl(0 0% 5%) 0%,
-      hsl(0 0% 0%) 100%
-    );
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 45% 98%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(var(--vernex-gold)) 0%, hsl(var(--vernex-soft-gold)) 100%);
 
-    --gradient-gold: linear-gradient(
-      135deg,
-      hsl(46 47% 55%) 0%,
-      hsl(46 65% 65%) 100%
-    );
+    --shadow-card: 0 12px 30px -18px hsl(var(--vernex-navy) / 0.24);
+    --shadow-elevated: 0 18px 44px -24px hsl(var(--vernex-navy) / 0.34);
+    --shadow-gold: 0 16px 38px -26px hsl(var(--vernex-gold) / 0.75);
+    --shadow-subtle: 0 1px 2px hsl(var(--vernex-navy) / 0.06);
 
-    /* ================= Shadows ================= */
-    --shadow-gold: 0 12px 40px -10px hsl(46 47% 55% / 0.35);
-    --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.6);
-    --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.8);
-    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.4);
-
-    /* ================= Animations ================= */
-    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.25s ease;
   }
 }
 
@@ -82,66 +62,54 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     @apply font-sans antialiased;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  #root {
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-semibold;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: 0;
+    line-height: 1.18;
     color: hsl(var(--foreground));
   }
 
   p {
     color: hsl(var(--muted-foreground));
   }
+
+  a, button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
 }
 
-/* ================= Utilities ================= */
 @layer utilities {
-  /* Gold divider line used across navbar, footer, sections */
+  .gold-divider,
+  .gold-divider-strong {
+    width: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--vernex-gold)), transparent);
+  }
+
   .gold-divider {
     height: 1px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      transparent,
-      hsl(var(--accent)),
-      transparent
-    );
   }
-   /* Strong gold divider (for footer / hero separation) */
+
   .gold-divider-strong {
     height: 2px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      transparent,
-      hsl(var(--accent)),
-      transparent
-    );
   }
-}
 
-@layer utilities {
-  .gold-divider {
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      hsl(var(--vernex-gold)),
-      transparent
-    );
-  }
-}
-
-@layer utilities {
   .text-gradient-gold {
     background-image: var(--gradient-gold);
     -webkit-background-clip: text;
@@ -153,48 +121,48 @@
     background-color: hsl(var(--card));
   }
 
+  .section-shell {
+    @apply py-16 md:py-24;
+  }
+
+  .corporate-card {
+    @apply rounded-lg border border-border bg-white shadow-[var(--shadow-card)] transition-all duration-300;
+  }
+
+  .corporate-card-hover {
+    @apply hover:-translate-y-1 hover:border-accent/50 hover:shadow-[var(--shadow-elevated)];
+  }
+
   .hover-gold {
     @apply transition-colors duration-200 hover:text-accent;
   }
 
   .hover-lift {
-    @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[var(--shadow-elevated)];
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)];
   }
 
   .hover-glow {
-    @apply transition-all duration-500 hover:shadow-[var(--shadow-gold)];
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-gold)];
   }
 
   .glass-effect {
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    background-color: hsl(var(--card) / 0.75);
-    border: 1px solid hsl(var(--border) / 0.6);
+    background-color: hsl(var(--card) / 0.92);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
   }
 
-  /* Fade in up */
   .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 0.7s ease-out forwards;
   }
 
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(32px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  /* Floating effect */
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-18px); }
   }
 }

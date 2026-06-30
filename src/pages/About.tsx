@@ -1,10 +1,9 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { Target, Eye, Sparkles } from "lucide-react";
+import { BarChart3, Building2, Eye, Megaphone, MonitorCog, Sparkles, Target } from "lucide-react";
 
-const GOLD = "#C9A94D";
+const GOLD = "#D8B36A";
 
-/* ---------- Animation presets ---------- */
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
   show: {
@@ -32,20 +31,71 @@ const cardVariant: Variants = {
   },
 };
 
+const buildItems = [
+  {
+    title: "Business Software and SaaS Products",
+    text: "Custom software and SaaS tools for daily business operations.",
+    icon: MonitorCog,
+  },
+  {
+    title: "School ERP Systems",
+    text: "ERP systems for student records, administration, fees, attendance, and school workflows.",
+    icon: Building2,
+  },
+  {
+    title: "Restaurant BI Dashboards",
+    text: "Dashboards for sales, profit, menu performance, and operational reporting.",
+    icon: BarChart3,
+  },
+  {
+    title: "Billing and POS Systems",
+    text: "Billing, POS, sales records, and basic inventory systems for retail and service businesses.",
+    icon: Sparkles,
+  },
+  {
+    title: "Attendance and Automation Systems",
+    text: "Attendance systems, automation tools, and business process support.",
+    icon: Target,
+  },
+  {
+    title: "Clinic and Sales Automation Tools",
+    text: "Clinic operations, sales follow-up systems, lead workflows, and customer tracking tools.",
+    icon: BarChart3,
+  },
+  {
+    title: "Websites and Landing Pages",
+    text: "Professional websites and landing pages designed to support enquiries and trust.",
+    icon: MonitorCog,
+  },
+  {
+    title: "Branding and Content Systems",
+    text: "Brand identity, content planning, social media creatives, video, and media assets.",
+    icon: Megaphone,
+  },
+  {
+    title: "Digital Marketing Campaigns",
+    text: "Social media, paid campaigns, digital growth execution, and customer reach support.",
+    icon: Megaphone,
+  },
+  {
+    title: "Founder and Personal Branding Systems",
+    text: "Profile positioning, content systems, visibility support, and personal brand growth.",
+    icon: Eye,
+  },
+];
+
 const About: React.FC = () => {
   return (
-    <div className="min-h-screen pt-20 bg-black text-white overflow-x-hidden">
-
-      {/* ================= HERO ================= */}
+    <div className="min-h-screen overflow-x-hidden bg-background pt-20 text-foreground">
       <section className="relative py-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f] via-black to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F7F9FC] to-white" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4"
+            className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
             About <span style={{ color: GOLD }}>Vernex</span>
@@ -56,20 +106,18 @@ const About: React.FC = () => {
             initial="hidden"
             animate="show"
             transition={{ delay: 0.08 }}
-            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
+            className="mx-auto max-w-3xl break-words px-1 text-base leading-relaxed text-muted-foreground md:text-xl"
           >
-            A digital ecosystem engineered for tomorrow-built on strategy,
-            technology and creativity.
+            Vernex is a founder-led digital company building technology systems
+            and marketing solutions for growing businesses.
           </motion.p>
         </div>
       </section>
 
-      {/* ================= SECTION DIVIDER ================= */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#C9A94D]/50 to-transparent" />
+      <div className="gold-divider" />
 
-      {/* ================= OUR JOURNEY ================= */}
-      <section className="py-20 bg-[#0c0c0c]">
-        <div className="container mx-auto px-4 max-w-5xl">
+      <section className="section-shell bg-white">
+        <div className="container mx-auto max-w-5xl px-4">
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -77,63 +125,49 @@ const About: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2
-              className="text-3xl md:text-4xl font-bold mb-4"
+              className="mb-4 text-3xl font-bold md:text-4xl"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
-              Our <span style={{ color: GOLD }}>Journey</span>
+              Who <span style={{ color: GOLD }}>We Are</span>
             </h2>
 
             <div
-              className="h-1 w-24 mb-8 rounded-full"
+              className="mb-8 h-1 w-24 rounded-full"
               style={{ backgroundColor: GOLD }}
             />
 
             <div
-              className="space-y-4 text-base md:text-lg leading-relaxed text-gray-400"
+              className="max-w-full space-y-4 break-words text-base leading-relaxed text-muted-foreground md:text-lg"
               style={{ fontFamily: "Inter, system-ui, sans-serif" }}
             >
               <p>
-                Vernex was born in 2025 from a powerful vision — to create a
-                digital ecosystem where technology, creativity and innovation
-                work together to shape the future.
+                Vernex helps businesses operate better and grow stronger
+                through software, automation, business intelligence, branding,
+                content, websites, and digital marketing.
               </p>
               <p>
-                What started as a single idea has evolved into a dynamic network
-                offering 15+ services across web and app development, digital
-                marketing, branding, SaaS products, event management and
-                creative solutions.
+                We work through two major divisions: Vernex Gen Technologies
+                and Vernex Digital Marketing.
               </p>
               <p>
-                As we move forward, Vernex is evolving into a future-driven
-                ecosystem — integrating SaaS platforms, AI solutions,
-                automation tools and intelligent business systems.
+                Vernex Gen Technologies builds SaaS products, ERP systems, BI
+                dashboards, automation tools, AI-powered systems, and practical
+                business software.
               </p>
               <p>
-                Today, Vernex stands as a symbol of innovation and trust,
-                creating digital experiences that inspire and endure.
-              </p>
-              <p className="font-semibold text-white">
-                Because at Vernex, we don&apos;t just build brands —{" "}
-                <span style={{ color: GOLD }}>we build the future.</span>
+                Vernex Digital Marketing helps brands improve visibility,
+                content quality, social media presence, websites, campaigns,
+                personal branding, and customer reach.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ================= MISSION & VISION ================= */}
-      <section className="py-20 bg-black">
-        <div
-          className="mx-auto max-w-6xl rounded-3xl overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.6)]"
-          style={{
-            background:
-              "radial-gradient(circle at top left, #1a1a1a 0%, #0a0a0a 45%, #000000 100%)",
-          }}
-        >
-          <div className="px-6 sm:px-10 py-12">
-            <div className="flex flex-col md:flex-row gap-10">
-
-              {/* Mission */}
+      <section className="section-shell bg-[#F7F9FC] px-4">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-lg border border-border bg-white shadow-[var(--shadow-card)]">
+          <div className="px-6 py-12 sm:px-10">
+            <div className="flex flex-col gap-10 md:flex-row">
               <motion.div
                 variants={cardVariant}
                 initial="hidden"
@@ -141,38 +175,34 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 className="flex-1"
               >
-                <div className="h-full bg-white/5 border border-white/10 rounded-3xl px-8 py-9 backdrop-blur-sm">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+                <div className="h-full rounded-lg border border-border bg-white px-8 py-9">
+                  <div className="mb-6 flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary">
                       <Target size={28} color={GOLD} />
                     </div>
                     <div>
-                      <p className="text-[11px] tracking-[0.28em] uppercase text-[#C9A94D] mb-1">
+                      <p className="mb-1 text-[11px] uppercase tracking-wide text-accent">
                         Our Mission
                       </p>
-                      <h3 className="text-2xl md:text-3xl font-bold">
+                      <h3 className="text-2xl font-bold md:text-3xl">
                         MISSION
                       </h3>
                     </div>
                   </div>
 
-                  <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                    To make modern technology accessible, affordable and
-                    impactful for everyone. Vernex empowers students,
-                    freelancers and professionals to learn, earn and grow, while
-                    helping businesses thrive with innovative digital solutions.
-                    We believe technology should drive growth, opportunity and
-                    transformation for all.
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                    To deliver practical, affordable, and scalable technology
+                    and marketing solutions that help businesses improve
+                    operations, build trust, attract customers, and grow with
+                    confidence.
                   </p>
                 </div>
               </motion.div>
 
-              {/* Separator */}
-              <div className="hidden md:flex items-stretch">
-                <div className="w-[2px] bg-[#C9A94D]/50 rounded-full" />
+              <div className="hidden items-stretch md:flex">
+                <div className="w-px rounded-full bg-accent/50" />
               </div>
 
-              {/* Vision */}
               <motion.div
                 variants={cardVariant}
                 initial="hidden"
@@ -180,56 +210,51 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 className="flex-1"
               >
-                <div className="h-full bg-white/5 border border-white/10 rounded-3xl px-8 py-9 backdrop-blur-sm">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+                <div className="h-full rounded-lg border border-border bg-white px-8 py-9">
+                  <div className="mb-6 flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary">
                       <Eye size={28} color={GOLD} />
                     </div>
                     <div>
-                      <p className="text-[11px] tracking-[0.28em] uppercase text-[#C9A94D] mb-1">
+                      <p className="mb-1 text-[11px] uppercase tracking-wide text-accent">
                         Our Vision
                       </p>
-                      <h3 className="text-2xl md:text-3xl font-bold">
+                      <h3 className="text-2xl font-bold md:text-3xl">
                         VISION
                       </h3>
                     </div>
                   </div>
 
-                  <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                    To build a global, human-centered digital ecosystem where
-                    AI, machine learning, SaaS and emerging technologies empower
-                    individuals and businesses. Vernex delivers end-to-end
-                    solutions across business, education, healthcare and
-                    lifestyle, making advanced technology accessible, practical
-                    and transformative for all.
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                    To build Vernex into a trusted digital company creating
+                    software products, automation systems, marketing solutions,
+                    and business growth tools for India and global markets.
                   </p>
                 </div>
               </motion.div>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= CORE VALUES ================= */}
-      <section className="py-20 bg-[#0b0b0b]">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <section className="section-shell bg-white">
+        <div className="container mx-auto max-w-6xl px-4">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="text-center mb-14"
+            className="mb-14 text-center"
           >
             <h2
-              className="text-3xl md:text-4xl font-bold mb-3"
+              className="mb-3 text-3xl font-bold md:text-4xl"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
-              Our <span style={{ color: GOLD }}>Core Values</span>
+              What <span style={{ color: GOLD }}>We Build</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              The principles that guide how Vernex thinks, builds and grows with
-              our clients and partners.
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Vernex builds practical digital systems that support operations,
+              visibility, customer reach, and business growth.
             </p>
           </motion.div>
 
@@ -238,51 +263,44 @@ const About: React.FC = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
-            {[
-              {
-                title: "Visionary Thinking",
-                text: "We think beyond trends and design the future — every project reflects creativity with purpose.",
-              },
-              {
-                title: "Innovation First",
-                text: "Technology is our canvas. We push boundaries to create solutions that redefine industries.",
-              },
-              {
-                title: "Integrity & Trust",
-                text: "Our foundation is transparency, ethics and reliability — so every relationship is long-term and meaningful.",
-              },
-              {
-                title: "Excellence in Execution",
-                text: "Perfection is not our goal — it’s our standard. Every detail carries Vernex quality.",
-              },
-              {
-                title: "Collaboration & Growth",
-                text: "We grow together — with our clients, partners and team — building a culture that inspires and uplifts.",
-              },
-              {
-                title: "Legacy Creation",
-                text: "We don’t just deliver projects; we create lasting impact that builds brands designed to endure.",
-              },
-            ].map((item) => (
+            {buildItems.map((item) => (
               <motion.div
                 key={item.title}
                 variants={cardVariant}
-                className="bg-[#111] border border-white/10 rounded-2xl p-7 hover:-translate-y-1 transition"
+                className="corporate-card corporate-card-hover rounded-lg p-7"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#C9A94D]/15 flex items-center justify-center mb-4">
-                  <Sparkles size={22} color={GOLD} />
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-secondary">
+                  <item.icon size={22} color={GOLD} />
                 </div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2">
+                <h3 className="mb-2 text-lg font-semibold md:text-xl">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
                   {item.text}
                 </p>
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      <section className="section-shell bg-[#F7F9FC]">
+        <div className="container mx-auto max-w-5xl px-4">
+          <div className="corporate-card p-8 md:p-10">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-accent">
+              Founder-Led Approach
+            </p>
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+              Practical Execution, Clear Communication
+            </h2>
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              Vernex is built with a founder-led execution mindset. Every
+              solution is planned with practical business value, clear
+              communication, and long-term growth in mind.
+            </p>
+          </div>
         </div>
       </section>
     </div>

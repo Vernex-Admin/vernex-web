@@ -2,8 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const GOLD = "#C9A227";
-
 const Section = ({
   title,
   children,
@@ -22,9 +20,9 @@ const Section = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
       className="
-        rounded-xl border border-[#C9A227]/20
-        bg-gradient-to-br from-[#0b0b0b] to-black
-        shadow-[0_0_25px_rgba(201,162,39,0.12)]
+        rounded-lg border border-border
+        bg-white
+        shadow-[var(--shadow-card)]
       "
     >
       {/* HEADER */}
@@ -32,14 +30,14 @@ const Section = ({
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 text-left"
       >
-        <h2 className="text-lg font-semibold border-l-4 border-[#C9A227] pl-3">
+        <h2 className="border-l-4 border-accent pl-3 text-lg font-semibold">
           {title}
         </h2>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-[#C9A227]" />
+          <ChevronDown className="text-accent" />
         </motion.span>
       </button>
 
@@ -52,7 +50,7 @@ const Section = ({
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="px-6 pb-5 text-sm leading-relaxed text-white/90"
+            className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground"
           >
             {children}
           </motion.div>
@@ -64,21 +62,21 @@ const Section = ({
 
 const TermsOfService = () => {
   return (
-    <section className="bg-black text-white min-h-[60vh] pt-28 pb-20">
+    <section className="min-h-[60vh] bg-background pt-28 pb-20 text-foreground">
       <div className="max-w-4xl mx-auto px-6">
 
         {/* GOLD TOP DIVIDER */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mb-10" />
+        <div className="gold-divider-strong mb-10" />
 
         {/* HEADER */}
         <header className="mb-12">
-          <p className="text-xs md:text-sm text-white/60 mb-2">
+          <p className="mb-2 text-xs text-muted-foreground md:text-sm">
             Last updated: {new Date().toLocaleDateString("en-IN")}
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold">
-            Terms of <span className="text-[#C9A227]">Service</span>
+            Terms of <span className="text-primary">Service</span>
           </h1>
-          <div className="mt-4 h-[2px] w-20 bg-[#C9A227]" />
+          <div className="mt-4 h-[2px] w-20 bg-accent" />
         </header>
 
         {/* CONTENT */}
@@ -106,7 +104,7 @@ const TermsOfService = () => {
               compliance with these Terms.
             </p>
             <p>You must not:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Attempt unauthorized access</li>
               <li>Interfere with service integrity</li>
               <li>Use our services to harm, abuse, or exploit others</li>
@@ -130,7 +128,7 @@ const TermsOfService = () => {
           </Section>
 
           <Section title="5. Payments & Subscriptions (If Applicable)" index={4}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Fees must be paid as per the chosen plan</li>
               <li>Payments are non-refundable unless stated otherwise</li>
               <li>Subscriptions may auto-renew unless cancelled</li>
@@ -143,7 +141,7 @@ const TermsOfService = () => {
               All content, designs, code, software, branding, and materials on
               Vernex platforms are the property of Vernex.
             </p>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Copy</li>
               <li>Modify</li>
               <li>Redistribute</li>
@@ -179,7 +177,7 @@ const TermsOfService = () => {
           </Section>
 
           <Section title="10. Limitation of Liability" index={9}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Indirect or consequential damages</li>
               <li>Use of services at your own risk</li>
               <li>Data loss or unauthorized access</li>
@@ -214,7 +212,7 @@ const TermsOfService = () => {
               📧{" "}
               <a
                 href="mailto:vernex.main@gmail.com"
-                className="underline hover:text-[#C9A227]"
+                className="underline hover:text-primary"
               >
                 vernex.main@gmail.com
               </a>
@@ -224,7 +222,7 @@ const TermsOfService = () => {
         </div>
 
         {/* GOLD BOTTOM DIVIDER */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mt-14" />
+        <div className="gold-divider-strong mt-14" />
       </div>
     </section>
   );

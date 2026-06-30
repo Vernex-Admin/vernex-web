@@ -12,19 +12,18 @@ interface ServiceCardProps {
 const ServiceCard = ({ title, description, icon: Icon }: ServiceCardProps) => {
   return (
     <Link to="/services" className="block h-full">
-      <Card className="relative p-8 h-full bg-card hover:bg-accent/5 transition-all duration-500 hover-lift border border-border/50 hover:border-accent/40 group overflow-hidden">
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer" />
+      <Card className="relative h-full overflow-hidden p-7 transition-all duration-300 corporate-card-hover group">
         <div className="relative flex flex-col items-center text-center space-y-5">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center group-hover:from-accent/20 group-hover:to-accent/10 transition-all duration-500 group-hover:scale-110 shadow-[var(--shadow-subtle)]">
-            <Icon size={36} className="text-accent group-hover:scale-110 transition-transform duration-500" />
+          <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-secondary/70 text-primary transition-all duration-300 group-hover:bg-accent/20">
+            <Icon size={30} className="text-primary transition-colors duration-300 group-hover:text-accent" />
           </div>
-          <h3 className="text-xl font-heading font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+          <h3 className="text-xl font-heading font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
             {title}
           </h3>
           <p className="text-muted-foreground leading-relaxed text-sm">
             {description}
           </p>
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute bottom-0 left-1/2 h-1 w-16 -translate-x-1/2 rounded-full bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
       </Card>
     </Link>
