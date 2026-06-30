@@ -74,11 +74,6 @@ const VernexEcosystem = () => {
           <Button asChild className="bg-[#D8B36A] text-black hover:bg-[#F4E4B8]"><a href="#choose">Explore Ecosystem</a></Button>
           <Button asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white hover:text-black"><Link to="/contact">Start Your Project</Link></Button>
         </div>
-        <div className="relative mx-auto mt-16 grid max-w-4xl gap-5 md:grid-cols-[1fr_auto_1fr] md:items-center">
-          <div className="rounded-2xl border border-white/15 bg-white/[.06] p-5 backdrop-blur-md"><div className="premium-logo-frame mb-4"><img src={paths.technology.logo} alt="Vernex Gen Technologies" className="brand-division-logo" /></div><p className="text-sm text-[#D1D5DB]">Systems that power operations</p></div>
-          <div className="relative hidden w-32 items-center justify-center md:flex"><span className="absolute h-px w-full bg-gradient-to-r from-[#D8B36A]/20 via-[#D8B36A] to-[#D8B36A]/20"/><span className="z-10 rounded-full border border-[#D8B36A] bg-[#050505] px-3 py-2 text-xs font-bold text-[#D8B36A]">VERNEX</span></div>
-          <div className="rounded-2xl border border-white/15 bg-white/[.06] p-5 backdrop-blur-md"><div className="premium-logo-frame mb-4"><img src={paths.marketing.logo} alt="Vernex Digital Marketing" className="brand-division-logo" /></div><p className="text-sm text-[#D1D5DB]">Execution that creates demand</p></div>
-        </div>
         </div>
       </section>
 
@@ -95,27 +90,31 @@ const VernexEcosystem = () => {
         </div>
       </section>
 
-      <section id="choose" className="section-shell scroll-mt-24 bg-[#F7F9FC]">
+      <section id="choose" className="scroll-mt-24 bg-[#F7F9FC] py-12 md:py-20">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="mb-10 text-center"><h2 className="mb-3 text-3xl font-bold md:text-4xl">Choose Your Vernex Path</h2><p>Whether you need smarter systems or stronger market presence, Vernex has a dedicated division.</p></div>
-          <div className="grid gap-5 md:grid-cols-2" role="tablist" aria-label="Vernex divisions">
+          <div className="mb-7 text-center md:mb-10"><h2 className="mb-3 text-2xl font-bold md:text-4xl">Choose Your Vernex Path</h2><p className="mx-auto max-w-2xl text-sm md:text-base">Whether you need smarter systems or stronger market presence, Vernex has a dedicated division.</p></div>
+          <div className="mx-auto grid max-w-4xl gap-3 rounded-2xl border border-border bg-white p-2 shadow-[0_15px_40px_-28px_rgba(6,26,58,.45)] md:grid-cols-2" role="tablist" aria-label="Vernex divisions">
             {(Object.keys(paths) as Path[]).map((key) => {
               const item = paths[key]; const selected = active === key;
-              return <button key={key} role="tab" aria-selected={selected} aria-pressed={selected} onClick={() => setActive(key)} className={`logo-shine relative overflow-hidden rounded-2xl border bg-white p-7 text-left shadow-sm ${selected ? "border-[#D8B36A] shadow-[0_16px_40px_rgba(216,179,106,.22)]" : "border-border"}`}>
-                {selected && <span className="absolute right-5 top-5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#D8B36A] text-black"><Check size={16}/></span>}<div className="premium-logo-frame mb-5 h-28"><img src={item.logo} alt={`${item.title} logo`} className="brand-division-logo" /></div><span className="block text-sm text-muted-foreground">{item.subtitle}</span>
+              return <button key={key} role="tab" aria-selected={selected} aria-pressed={selected} onClick={() => setActive(key)} className={`relative flex min-h-[88px] items-center gap-4 rounded-xl border px-4 py-3 text-left transition-all duration-300 md:px-5 ${selected ? "border-[#D8B36A] bg-[#061A3A] text-white shadow-[0_12px_28px_-18px_rgba(6,26,58,.65)]" : "border-transparent bg-[#F7F9FC] text-[#061A3A] hover:border-[#D8B36A]/50 hover:bg-white"}`}>
+                <span className={`flex h-14 w-[104px] shrink-0 items-center justify-center overflow-hidden rounded-lg border bg-white p-1.5 md:w-[118px] ${selected ? "border-[#D8B36A]/70 shadow-[0_0_18px_rgba(216,179,106,.16)]" : "border-[#D8B36A]/30"}`}>
+                  <img src={item.logo} alt={`${item.title} logo`} className="h-full w-full object-contain mix-blend-multiply" />
+                </span>
+                <span className="min-w-0 flex-1"><span className="block pr-7 text-sm font-bold md:text-base">{item.title}</span><span className={`mt-1 block text-xs leading-relaxed ${selected ? "text-[#D1D5DB]" : "text-muted-foreground"}`}>{item.subtitle}</span></span>
+                {selected && <span className="absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full bg-[#D8B36A] text-black"><Check size={13}/></span>}
               </button>;
             })}
           </div>
 
           <AnimatePresence mode="wait">
-            <motion.article key={active} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="mt-8 overflow-hidden rounded-2xl border border-[#D8B36A]/30 bg-white shadow-[0_25px_65px_-35px_rgba(6,26,58,.45)]">
+            <motion.article key={active} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="mt-5 overflow-hidden rounded-xl border border-[#D8B36A]/30 bg-white shadow-[0_18px_45px_-30px_rgba(6,26,58,.4)] md:mt-8 md:rounded-2xl">
               <div className="grid lg:grid-cols-[1.25fr_.75fr]">
-              <div className="p-7 md:p-10"><div className="premium-logo-frame mb-6 h-32 max-w-md"><img src={content.logo} alt={`${content.title} logo`} className="brand-division-logo" /></div><h2 className="sr-only">{content.title}</h2><p className="mb-5 mt-2 text-xl font-semibold text-[#0B2454]">{content.tagline}</p>
-              <p className="mb-5 text-lg">{content.description}</p><p className="mb-7">{content.purpose}</p>
-              <h3 className="mb-4 text-xl font-bold">What We Focus On</h3><div className="mb-8 flex flex-wrap gap-2">{content.focus.map(x => <span key={x} className="rounded-full bg-[#F4E4B8]/50 px-3 py-1 text-sm">{x}</span>)}</div>
-              <div className="flex flex-col gap-3 sm:flex-row"><Button asChild><Link to={content.primary[1]}>{content.primary[0]} <ArrowRight size={16}/></Link></Button><Button asChild variant="outline"><Link to={content.secondary[1]}>{content.secondary[0]}</Link></Button></div>
+              <div className="p-5 md:p-10"><span className="mb-3 inline-block text-xs font-bold uppercase tracking-[.16em] text-[#B88932]">Vernex Division</span><h2 className="mb-2 text-2xl font-bold text-[#061A3A] md:text-3xl">{content.title}</h2><p className="mb-4 text-lg font-semibold text-[#0B2454] md:mb-5 md:text-xl">{content.tagline}</p>
+              <p className="mb-4 text-sm leading-relaxed md:mb-5 md:text-lg">{content.description}</p><p className="mb-6 text-sm leading-relaxed md:mb-7 md:text-base">{content.purpose}</p>
+              <h3 className="mb-3 text-lg font-bold md:mb-4 md:text-xl">What We Focus On</h3><div className="mb-6 flex flex-wrap gap-1.5 md:mb-8 md:gap-2">{content.focus.map(x => <span key={x} className="rounded-full bg-[#F4E4B8]/50 px-2.5 py-1 text-xs md:px-3 md:text-sm">{x}</span>)}</div>
+              <div className="flex flex-col gap-3 sm:flex-row"><Button asChild className="w-full sm:w-auto"><Link to={content.primary[1]}>{content.primary[0]} <ArrowRight size={16}/></Link></Button><Button asChild variant="outline" className="w-full sm:w-auto"><Link to={content.secondary[1]}>{content.secondary[0]}</Link></Button></div>
               </div>
-              <div className="relative flex min-h-[320px] items-center bg-[#061A3A] p-8 text-white"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(216,179,106,.22),transparent_42%)]"/><div className="relative w-full space-y-4"><p className="text-xs font-bold uppercase tracking-widest text-[#D8B36A]">Business intelligence view</p>{content.problems.slice(0,3).map(([title], index) => <div key={title} className="rounded-xl border border-white/10 bg-white/[.06] p-4 backdrop-blur"><div className="mb-2 flex items-center justify-between"><span className="font-semibold">{title}</span><span className="text-xs text-[#D8B36A]">0{index + 1}</span></div><div className="h-1.5 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-[#D8B36A] to-[#F4E4B8]" style={{width: `${78 - index * 12}%`}}/></div></div>)}</div></div>
+              <div className="relative flex min-h-[260px] items-center bg-[#061A3A] p-5 text-white md:min-h-[320px] md:p-8"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(216,179,106,.22),transparent_42%)]"/><div className="relative w-full space-y-3 md:space-y-4"><p className="text-xs font-bold uppercase tracking-widest text-[#D8B36A]">Business intelligence view</p>{content.problems.slice(0,3).map(([title], index) => <div key={title} className="rounded-lg border border-white/10 bg-white/[.06] p-3 backdrop-blur md:rounded-xl md:p-4"><div className="mb-2 flex items-center justify-between"><span className="text-sm font-semibold md:text-base">{title}</span><span className="text-xs text-[#D8B36A]">0{index + 1}</span></div><div className="h-1.5 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-[#D8B36A] to-[#F4E4B8]" style={{width: `${78 - index * 12}%`}}/></div></div>)}</div></div>
               </div>
             </motion.article>
           </AnimatePresence>
