@@ -8,7 +8,8 @@ import {
   Linkedin,
   MessageCircle,
 } from "lucide-react";
-import logo from "@/assets/vnx-logo.jpg";
+
+const logo = "/vernex-logo-main.png";
 
 const WHATSAPP_LINK = "https://wa.me/919789912805";
 const INSTAGRAM_LINK =
@@ -24,10 +25,10 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const linkClass =
-    "relative inline-block text-sm text-white/75 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#D8B36A] after:transition-all after:duration-300 hover:text-[#F4E4B8] hover:after:w-full";
+    "relative inline-block text-sm text-[#D1D5DB] transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#D8B36A] after:transition-all after:duration-300 hover:text-[#D8B36A] hover:after:w-full";
 
   const socialClass =
-    "flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:border-[#D8B36A] hover:bg-[#D8B36A] hover:text-[#061A3A]";
+    "flex h-10 w-10 items-center justify-center rounded-full border border-[#D8B36A]/25 bg-white/5 text-white transition-all hover:border-[#D8B36A] hover:bg-[#D8B36A] hover:text-[#050505]";
 
   const serviceLink = (label: string) => (
     <li>
@@ -41,16 +42,16 @@ const Footer = () => {
     <>
       <div className="gold-divider-strong" />
 
-      <footer className="bg-[#061A3A] px-6 py-14 text-white">
+      <footer className="bg-[#050505] px-6 py-14 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img
               src={logo}
               alt="Vernex"
-              className="mb-5 h-12 rounded bg-white object-contain p-1"
+              className="logo-gold-glow mb-5 h-14 w-auto max-w-[240px] object-contain"
             />
 
-            <p className="max-w-xs text-sm leading-relaxed text-white/70">
+            <p className="max-w-xs text-sm leading-relaxed text-[#D1D5DB]">
               Technology, automation, websites, branding, and digital marketing
               solutions for growing businesses.
             </p>
@@ -72,14 +73,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#D8B36A]">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-white">
               Quick Links
             </h3>
             <ul className="space-y-3">
               <li><Link to="/" className={linkClass}>Home</Link></li>
-              <li><Link to="/gen-technologies" className={linkClass}>Gen Technologies</Link></li>
-              <li><Link to="/digital-marketing" className={linkClass}>Digital Marketing</Link></li>
-              <li><Link to="/services" className={linkClass}>Services</Link></li>
+              <li><Link to="/vernex-ecosystem" className={linkClass}>Vernex Ecosystem</Link></li>
+              <li><Link to="/services" className={linkClass}>Marketing Services</Link></li>
               <li><Link to="/products" className={linkClass}>Products</Link></li>
               <li><Link to="/about" className={linkClass}>About</Link></li>
               <li><Link to="/social-connect" className={linkClass}>Social Connect</Link></li>
@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#D8B36A]">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-white">
               Popular Services
             </h3>
             <ul className="space-y-3">
@@ -103,19 +103,19 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#D8B36A]">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-white">
               Contact
             </h3>
-            <ul className="space-y-4 text-sm text-white/75">
+            <ul className="space-y-4 text-sm text-[#D1D5DB]">
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-[#D8B36A]" />
-                <a href={`mailto:${EMAIL}`} className="hover:text-[#F4E4B8]">
+                <a href={`mailto:${EMAIL}`} className="hover:text-[#D8B36A]">
                   {EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-[#D8B36A]" />
-                <a href={`tel:${PHONE_NUMBER_TEL}`} className="hover:text-[#F4E4B8]">
+                <a href={`tel:${PHONE_NUMBER_TEL}`} className="hover:text-[#D8B36A]">
                   {PHONE_NUMBER}
                 </a>
               </li>
@@ -125,7 +125,7 @@ const Footer = () => {
                   href="https://www.google.com/maps/search/?api=1&query=Chennai+India"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#F4E4B8]"
+                  className="hover:text-[#D8B36A]"
                 >
                   Chennai, India
                 </a>
@@ -134,8 +134,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
-          <p>(c) {year} Vernex. All rights reserved.</p>
+        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-[#D8B36A]/25 pt-6 text-sm text-[#D1D5DB] md:flex-row md:items-center md:justify-between">
+          <p className="text-[#D1D5DB]">&copy; {year} Vernex. All rights reserved.</p>
 
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             <Link to="/privacy-policy" className={linkClass}>Privacy Policy</Link>
