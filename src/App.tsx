@@ -8,6 +8,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import GenTechnologies from "./pages/GenTechnologies";
+import Products from "./pages/Products";
+import DigitalMarketing from "./pages/DigitalMarketing";
 import JoinNetwork from "@/pages/JoinNetwork";
 import SocialConnect from "./pages/SocialConnect";
 import Contact from "./pages/Contact";
@@ -29,6 +32,9 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="gen-technologies" element={<GenTechnologies />} />
+          <Route path="products" element={<Products />} />
+          <Route path="digital-marketing" element={<DigitalMarketing />} />
           <Route path="services" element={<Services />} />
           <Route path="join-network" element={<JoinNetwork />} />
           <Route path="social-connect" element={<SocialConnect />} />

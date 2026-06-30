@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import logo from "@/assets/vnx-logo.jpg";
 
-/* ===== PROVIDED CONSTANTS (UNCHANGED) ===== */
 const WHATSAPP_LINK = "https://wa.me/919789912805";
 const INSTAGRAM_LINK =
   "https://www.instagram.com/vernex.in?igsh=MWp6am1vaWoxYjY1NQ==";
@@ -21,17 +20,18 @@ const EMAIL = "vernexmain@gmail.com";
 const PHONE_NUMBER = "+91 97899 12805";
 const PHONE_NUMBER_TEL = "+919789912805";
 
-const GOLD = "#C9A227";
-
 const Footer = () => {
   const year = new Date().getFullYear();
 
   const linkClass =
-    "relative inline-block text-sm text-black transition-all after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#C9A227] after:transition-all after:duration-300 hover:after:w-full hover:text-[#C9A227]";
+    "relative inline-block text-sm text-white/75 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#D8B36A] after:transition-all after:duration-300 hover:text-[#F4E4B8] hover:after:w-full";
 
-  const serviceLink = (label: string, anchor: string) => (
+  const socialClass =
+    "flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:border-[#D8B36A] hover:bg-[#D8B36A] hover:text-[#061A3A]";
+
+  const serviceLink = (label: string) => (
     <li>
-      <Link to={`/services#${anchor}`} className={linkClass}>
+      <Link to="/services" className={linkClass}>
         {label}
       </Link>
     </li>
@@ -39,132 +39,105 @@ const Footer = () => {
 
   return (
     <>
-      {/* GOLD DIVIDER */}
-      <div className="h-[3px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent" />
+      <div className="gold-divider-strong" />
 
-      <footer className="bg-white text-black py-14 px-6">
-        <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-4">
-
-          {/* BRAND */}
+      <footer className="bg-[#061A3A] px-6 py-14 text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img
               src={logo}
               alt="Vernex"
-              className="h-11 mb-4 cursor-pointer transition-transform hover:scale-105"
+              className="mb-5 h-12 rounded bg-white object-contain p-1"
             />
 
-            <p className="text-sm text-gray-600 max-w-xs">
-              Empowering Growth Through Technology — For Everyone – Everywhere.
+            <p className="max-w-xs text-sm leading-relaxed text-white/70">
+              Technology, automation, websites, branding, and digital marketing
+              solutions for growing businesses.
             </p>
 
-            {/* SOCIAL ICONS – FIXED */}
-            <div className="flex gap-4 mt-6">
-              <a
-                href={WEBSITE_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-[#C9A227]"
-              >
+            <div className="mt-6 flex gap-3">
+              <a href={WEBSITE_LINK} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="Website">
                 <Globe size={18} />
               </a>
-
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-[#C9A227]"
-              >
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="WhatsApp">
                 <MessageCircle size={18} />
               </a>
-
-              <a
-                href={INSTAGRAM_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-[#C9A227]"
-              >
+              <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-
-              <a
-                href={LINKEDIN_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-[#C9A227]"
-              >
+              <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
             </div>
           </div>
 
-          {/* QUICK LINKS */}
           <div>
-            <h3 className="text-[#C9A227] font-semibold mb-4">Quick Links</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#D8B36A]">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className={linkClass}>About Us</Link></li>
+              <li><Link to="/" className={linkClass}>Home</Link></li>
+              <li><Link to="/gen-technologies" className={linkClass}>Gen Technologies</Link></li>
+              <li><Link to="/digital-marketing" className={linkClass}>Digital Marketing</Link></li>
               <li><Link to="/services" className={linkClass}>Services</Link></li>
-              <li><Link to="/join-network" className={linkClass}>Join Network</Link></li>
+              <li><Link to="/products" className={linkClass}>Products</Link></li>
+              <li><Link to="/about" className={linkClass}>About</Link></li>
               <li><Link to="/social-connect" className={linkClass}>Social Connect</Link></li>
               <li><Link to="/contact" className={linkClass}>Contact</Link></li>
             </ul>
           </div>
 
-          {/* POPULAR SERVICES – FIXED */}
           <div>
-            <h3 className="text-[#C9A227] font-semibold mb-4">Popular Services</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#D8B36A]">
+              Popular Services
+            </h3>
             <ul className="space-y-3">
-              {serviceLink("Web Development", "web-development")}
-              {serviceLink("App Development", "app-development")}
-              {serviceLink("Digital Marketing", "digital-marketing")}
-              {serviceLink("Social Media Management", "social-media-management")}
-              {serviceLink("Video Editing", "video-editing")}
-              {serviceLink("Event Organization", "event-organization")}
-              {serviceLink("Accounting & Finance", "accounting-finance")}
+              {serviceLink("Business Software")}
+              {serviceLink("Automation Systems")}
+              {serviceLink("Website Development")}
+              {serviceLink("Branding & Content")}
+              {serviceLink("Social Media Management")}
+              {serviceLink("Digital Marketing & Ads")}
+              {serviceLink("Personal Branding")}
             </ul>
           </div>
 
-          {/* CONTACT */}
           <div>
-            <h3 className="text-[#C9A227] font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-4 text-sm">
-
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#D8B36A]">
+              Contact
+            </h3>
+            <ul className="space-y-4 text-sm text-white/75">
               <li className="flex items-center gap-3">
-                <Mail size={18} />
-                <a href={`mailto:${EMAIL}`} className="hover:text-[#C9A227]">
+                <Mail size={18} className="text-[#D8B36A]" />
+                <a href={`mailto:${EMAIL}`} className="hover:text-[#F4E4B8]">
                   {EMAIL}
                 </a>
               </li>
-
               <li className="flex items-center gap-3">
-                <Phone size={18} />
-                <a href={`tel:${PHONE_NUMBER_TEL}`} className="hover:text-[#C9A227]">
+                <Phone size={18} className="text-[#D8B36A]" />
+                <a href={`tel:${PHONE_NUMBER_TEL}`} className="hover:text-[#F4E4B8]">
                   {PHONE_NUMBER}
                 </a>
               </li>
-
               <li className="flex items-center gap-3">
-                <MapPin size={18} />
+                <MapPin size={18} className="text-[#D8B36A]" />
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Chennai+India"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#C9A227]"
+                  className="hover:text-[#F4E4B8]"
                 >
                   Chennai, India
                 </a>
               </li>
-
             </ul>
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
-        <div className="mt-12 pt-6 border-t border-black/10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm">
-          <p className="text-gray-600">
-            © {year} Vernex Digital Ecosystem. All rights reserved.
-          </p>
+        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
+          <p>(c) {year} Vernex. All rights reserved.</p>
 
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
             <Link to="/privacy-policy" className={linkClass}>Privacy Policy</Link>
             <Link to="/terms-of-service" className={linkClass}>Terms of Service</Link>
             <Link to="/cookie-policy" className={linkClass}>Cookie Policy</Link>

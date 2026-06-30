@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const GOLD = "#C9A227";
+const GOLD = "#D8B36A";
 const WHATSAPP_LINK = "https://wa.me/919789912805";
 
 const Contact = () => {
@@ -15,6 +15,7 @@ const Contact = () => {
   const [selected, setSelected] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
+    brandName: "",
     email: "",
     phone: "",
     message: "",
@@ -47,6 +48,7 @@ const Contact = () => {
 
     setFormData({
       name: "",
+      brandName: "",
       email: "",
       phone: "",
       message: "",
@@ -55,41 +57,34 @@ const Contact = () => {
   };
 
   const servicesList = [
-    "Web Development",
-    "App Development",
-    "Graphic Design",
-    "Video Editing",
-    "Digital Marketing",
-    "Social Media Management",
-    "Content Creation",
-    "Startup Support (BizGuard)",
-    "School & College Project Support",
-    "Photography",
-    "Videography",
-    "Event Organization",
-    "Accounting & Finance",
-    "Chatbot Creation",
-    "Power BI & Data Analytics",
+    "I need software / SaaS product",
+    "I need digital marketing services",
+    "I need website / landing page",
+    "I need branding / content support",
+    "I want to collaborate with Vernex",
+    "I want to request a demo",
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-28 pb-24">
+    <div className="min-h-screen bg-background pt-28 pb-24 text-foreground">
 
       {/* GOLD TOP DIVIDER */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mb-16" />
+      <div className="gold-divider-strong mb-16" />
 
       {/* HERO */}
       <motion.section
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-20"
+        className="mb-20 px-4 text-center"
       >
         <h1 className="text-4xl md:text-5xl font-bold">
-          Get in <span className="text-[#C9A227]">Touch</span>
+          Start Your Project With <span className="text-primary">Vernex</span>
         </h1>
-        <p className="text-white/70 mt-3 max-w-3xl mx-auto">
-          Let's discuss how Vernex can help transform your ideas into reality.
+        <p className="mx-auto mt-3 max-w-3xl text-muted-foreground">
+          Tell us what you want to build or grow. Vernex will help you with the
+          right technology, software, automation, branding, website, or digital
+          marketing solution.
         </p>
       </motion.section>
 
@@ -103,26 +98,30 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="
-              relative rounded-3xl p-8
-              bg-gradient-to-br from-[#0b0b0b] via-black to-[#050505]
-              border border-[#C9A227]/30
-              shadow-[0_0_40px_rgba(201,162,39,0.15)]
+              corporate-card
+              relative rounded-lg p-8
             "
           >
-            <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
+            <h2 className="text-2xl font-semibold mb-6">Send Your Enquiry</h2>
 
             <form className="space-y-5" onSubmit={handleSubmit}>
-              <Input placeholder="Full Name" value={formData.name}
+              <Input placeholder="Name" value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
 
-              <Input placeholder="Email Address" value={formData.email}
+              <Input placeholder="Business / Brand Name" value={formData.brandName}
+                onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
+              />
+
+              <Input placeholder="Phone / WhatsApp" value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              />
+
+              <Input placeholder="Email" value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
 
-              <Input placeholder="Phone Number" value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              />
+              <p className="text-sm font-semibold text-primary">Service Interest</p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {servicesList.map((service) => (
@@ -133,8 +132,8 @@ const Contact = () => {
                     className={`rounded-xl border px-3 py-2 text-sm transition-all
                       ${
                         selected.includes(service)
-                          ? "bg-[#C9A227] text-black shadow-[0_0_15px_rgba(201,162,39,0.6)]"
-                          : "border-white/20 text-white hover:border-[#C9A227] hover:text-[#C9A227]"
+                          ? "border-primary bg-primary text-white shadow-[var(--shadow-gold)]"
+                          : "border-border bg-white text-muted-foreground hover:border-accent hover:text-primary"
                       }`}
                   >
                     {service}
@@ -143,7 +142,7 @@ const Contact = () => {
               </div>
 
               <Textarea
-                placeholder="Tell us about your project..."
+                placeholder="Message"
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
@@ -152,10 +151,9 @@ const Contact = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-[#C9A227] text-black font-semibold
-                hover:shadow-[0_0_25px_rgba(201,162,39,0.8)] transition"
+                className="w-full"
               >
-                <Send className="mr-2" /> Send Message
+                <Send className="mr-2" /> Book a Free Consultation
               </Button>
             </form>
           </motion.div>
@@ -170,17 +168,22 @@ const Contact = () => {
           >
             <div>
               <h2 className="text-2xl font-semibold mb-2">Contact Information</h2>
-              <p className="text-white/70">
-                Reach out to us through any of the following channels.
+              <p className="text-muted-foreground">
+                Reach Vernex for software, automation, websites, branding,
+                digital marketing, demos, and collaborations.
               </p>
             </div>
 
             <div className="space-y-4">
-              <a href="mailto:vernex.main@gmail.com" className="flex gap-3 items-center hover:text-[#C9A227] transition">
+              <a href="http://vernex.in/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground transition hover:text-primary">
+                <MapPin color={GOLD} /> www.vernex.in
+              </a>
+
+              <a href="mailto:vernex.main@gmail.com" className="flex items-center gap-3 text-muted-foreground transition hover:text-primary">
                 <Mail color={GOLD} /> vernex.main@gmail.com
               </a>
 
-              <a href="tel:+919789912805" className="flex gap-3 items-center hover:text-[#C9A227] transition">
+              <a href="tel:+919789912805" className="flex items-center gap-3 text-muted-foreground transition hover:text-primary">
                 <Phone color={GOLD} /> +91 97899 12805
               </a>
 
@@ -188,7 +191,7 @@ const Contact = () => {
                 href="https://www.google.com/maps/search/?api=1&query=Chennai+India"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex gap-3 items-center hover:text-[#C9A227] transition"
+                className="flex items-center gap-3 text-muted-foreground transition hover:text-primary"
               >
                 <MapPin color={GOLD} /> Chennai, India
               </a>
@@ -197,10 +200,8 @@ const Contact = () => {
             {/* BUSINESS HOURS + WHATSAPP CTA */}
             <div
               className="
-                rounded-2xl p-6
-                bg-gradient-to-br from-[#0b0b0b] via-black to-[#050505]
-                border border-[#C9A227]/30
-                shadow-[0_0_35px_rgba(201,162,39,0.18)]
+                corporate-card
+                rounded-lg p-6
                 space-y-4
               "
             >
@@ -208,7 +209,7 @@ const Contact = () => {
               <p>Monday – Friday: 8:00 AM – 8:00 PM IST</p>
               <p>Saturday & Sunday: 9:00 AM – 5:00 PM IST</p>
 
-              <p className="text-sm text-white/70">
+              <p className="text-sm text-muted-foreground">
                 * Available 24/7 via email for urgent matters
               </p>
 
@@ -219,9 +220,9 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="
                   mt-4 inline-flex items-center justify-center w-full
-                  rounded-xl bg-[#C9A227] text-black font-semibold
+                  rounded-lg bg-primary text-white font-semibold
                   py-3 transition
-                  hover:shadow-[0_0_30px_rgba(201,162,39,0.8)]
+                  hover:bg-[#061A3A] hover:shadow-[var(--shadow-gold)]
                 "
               >
                 Reach us instantly on WhatsApp
@@ -232,7 +233,7 @@ const Contact = () => {
       </div>
 
       {/* GOLD BOTTOM DIVIDER */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mt-24" />
+      <div className="gold-divider-strong mt-24" />
     </div>
   );
 };

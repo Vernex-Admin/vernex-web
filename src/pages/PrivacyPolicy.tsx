@@ -2,8 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const GOLD = "#C9A227";
-
 const Section = ({
   title,
   children,
@@ -22,9 +20,9 @@ const Section = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
       className="
-        rounded-xl border border-[#C9A227]/20
-        bg-gradient-to-br from-[#0b0b0b] to-black
-        shadow-[0_0_25px_rgba(201,162,39,0.12)]
+        rounded-lg border border-border
+        bg-white
+        shadow-[var(--shadow-card)]
       "
     >
       {/* HEADER */}
@@ -32,14 +30,14 @@ const Section = ({
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 text-left"
       >
-        <h2 className="text-lg font-semibold border-l-4 border-[#C9A227] pl-3">
+        <h2 className="border-l-4 border-accent pl-3 text-lg font-semibold">
           {title}
         </h2>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-[#C9A227]" />
+          <ChevronDown className="text-accent" />
         </motion.span>
       </button>
 
@@ -52,7 +50,7 @@ const Section = ({
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="px-6 pb-5 text-sm leading-relaxed text-white/90"
+            className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground"
           >
             {children}
           </motion.div>
@@ -64,21 +62,21 @@ const Section = ({
 
 const PrivacyPolicy = () => {
   return (
-    <section className="bg-black text-white min-h-[60vh] pt-28 pb-20">
+    <section className="min-h-[60vh] bg-background pt-28 pb-20 text-foreground">
       <div className="max-w-4xl mx-auto px-6">
 
         {/* GOLD TOP DIVIDER */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mb-10" />
+        <div className="gold-divider-strong mb-10" />
 
         {/* HEADER */}
         <header className="mb-12">
-          <p className="text-xs md:text-sm text-white/60 mb-2">
+          <p className="mb-2 text-xs text-muted-foreground md:text-sm">
             Last updated: {new Date().toLocaleDateString("en-IN")}
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold">
-            Privacy <span className="text-[#C9A227]">Policy</span>
+            Privacy <span className="text-primary">Policy</span>
           </h1>
-          <div className="mt-4 h-[2px] w-20 bg-[#C9A227]" />
+          <div className="mt-4 h-[2px] w-20 bg-accent" />
         </header>
 
         {/* CONTENT */}
@@ -98,18 +96,18 @@ const PrivacyPolicy = () => {
           </Section>
 
           <Section title="2. Information We Collect" index={1}>
-            <h3 className="font-semibold text-[#C9A227] mb-1">
+            <h3 className="mb-1 font-semibold text-primary">
               2.1 Information You Provide Directly
             </h3>
             <p>We may collect personal information when you:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Fill out forms</li>
               <li>Create an account</li>
               <li>Contact us</li>
               <li>Use our SaaS tools or dashboards</li>
             </ul>
             <p className="mt-2">This may include:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Name</li>
               <li>Email address</li>
               <li>Phone number</li>
@@ -119,7 +117,7 @@ const PrivacyPolicy = () => {
           </Section>
 
           <Section title="3. How We Use Your Information" index={2}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Provide and maintain our services</li>
               <li>Create and manage user accounts</li>
               <li>Process requests, inquiries, and support tickets</li>
@@ -131,7 +129,7 @@ const PrivacyPolicy = () => {
           </Section>
 
           <Section title="4. Legal Basis for Processing (GDPR Compliant)" index={3}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Contractual necessity</li>
               <li>Legitimate interests</li>
               <li>User consent</li>
@@ -140,7 +138,7 @@ const PrivacyPolicy = () => {
           </Section>
 
           <Section title="5. Sharing Your Information" index={4}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Hosting providers</li>
               <li>Payment gateways</li>
               <li>Analytics platforms</li>
@@ -154,7 +152,7 @@ const PrivacyPolicy = () => {
           </Section>
 
           <Section title="6. Data Storage & Security" index={5}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Encrypted communication</li>
               <li>Access controls</li>
               <li>Secure servers</li>
@@ -167,7 +165,7 @@ const PrivacyPolicy = () => {
           </Section>
 
           <Section title="7. Your Rights" index={6}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Access your data</li>
               <li>Request correction or deletion</li>
               <li>Withdraw consent</li>
@@ -177,7 +175,7 @@ const PrivacyPolicy = () => {
           </Section>
 
           <Section title="8. Data Retention" index={7}>
-            <ul className="list-disc list-inside ml-4 space-y-1 text-white/80">
+            <ul className="ml-4 list-inside list-disc space-y-1 text-muted-foreground">
               <li>Service purposes</li>
               <li>Legal obligations</li>
               <li>Security requirements</li>
@@ -214,7 +212,7 @@ const PrivacyPolicy = () => {
               📧{" "}
               <a
                 href="mailto:vernex.main@gmail.com"
-                className="underline hover:text-[#C9A227]"
+                className="underline hover:text-primary"
               >
                 vernex.main@gmail.com
               </a>
@@ -223,7 +221,7 @@ const PrivacyPolicy = () => {
         </div>
 
         {/* GOLD BOTTOM DIVIDER */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mt-14" />
+        <div className="gold-divider-strong mt-14" />
       </div>
     </section>
   );

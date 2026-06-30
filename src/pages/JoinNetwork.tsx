@@ -27,11 +27,11 @@ const stagger: Variants = {
 /* ================= COMPONENT ================= */
 const JoinNetwork = () => {
   return (
-    <div className="min-h-screen pt-20 bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-background pt-20 text-foreground">
 
       {/* ================= HERO ================= */}
       <section className="relative py-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#111] via-black to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F7F9FC] to-white" />
         <motion.div
           className="relative z-10 container mx-auto px-4 text-center max-w-4xl"
           variants={stagger}
@@ -42,12 +42,12 @@ const JoinNetwork = () => {
             variants={fadeUp}
             className="text-4xl md:text-6xl font-heading font-bold mb-5"
           >
-            Join the <span className="text-[#C9A94D]">Vernex Network</span>
+            Join the <span className="text-primary">Vernex Network</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-base md:text-xl text-gray-300"
+            className="text-base text-muted-foreground md:text-xl"
           >
             Collaborate with Vernex as a{" "}
             <strong>company / agency</strong> or join our ecosystem as a{" "}
@@ -56,11 +56,10 @@ const JoinNetwork = () => {
         </motion.div>
       </section>
 
-      {/* GOLD DIVIDER */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#C9A94D]/70 to-transparent" />
+      <div className="gold-divider" />
 
       {/* ================= WHY VERNEX ================= */}
-      <section className="py-24 bg-[#0b0b0b]">
+      <section className="section-shell bg-[#F7F9FC]">
         <div className="container mx-auto px-4">
           <motion.h2
             variants={fadeUp}
@@ -69,7 +68,7 @@ const JoinNetwork = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-heading font-bold text-center mb-16"
           >
-            Why <span className="text-[#C9A94D]">Vernex</span>?
+            Why <span className="text-primary">Vernex</span>?
           </motion.h2>
 
           <motion.div
@@ -81,22 +80,22 @@ const JoinNetwork = () => {
           >
             {[
               {
-                icon: <Users size={36} className="text-[#C9A94D]" />,
+                icon: <Users size={36} className="text-primary" />,
                 title: "Collaborative Network",
                 text: "Work with agencies, startups, enterprises, and institutions across domains.",
               },
               {
-                icon: <TrendingUp size={36} className="text-[#C9A94D]" />,
+                icon: <TrendingUp size={36} className="text-primary" />,
                 title: "Growth-Oriented",
                 text: "Upskill continuously through real-world execution and modern stacks.",
               },
               {
-                icon: <Award size={36} className="text-[#C9A94D]" />,
+                icon: <Award size={36} className="text-primary" />,
                 title: "Real Impact",
                 text: "Build credibility through meaningful, production-grade work.",
               },
               {
-                icon: <MailCheck size={36} className="text-[#C9A94D]" />,
+                icon: <MailCheck size={36} className="text-primary" />,
                 title: "Structured Onboarding",
                 text: "Clear process, transparent collaboration, long-term alignment.",
               },
@@ -105,20 +104,15 @@ const JoinNetwork = () => {
                 key={item.title}
                 variants={fadeUp}
                 className="
-                  text-center space-y-4
-                  bg-gradient-to-b from-[#121212] to-[#0a0a0a]
-                  border border-white/10
-                  rounded-2xl p-8
-                  hover:border-[#C9A94D]/50
-                  hover:shadow-[0_0_30px_rgba(201,169,77,0.25)]
-                  transition
+                  corporate-card corporate-card-hover
+                  space-y-4 rounded-lg p-8 text-center
                 "
               >
-                <div className="w-16 h-16 mx-auto rounded-2xl bg-[#C9A94D]/15 flex items-center justify-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-secondary">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="text-gray-400 text-sm">{item.text}</p>
+                <p className="text-sm text-muted-foreground">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -126,20 +120,20 @@ const JoinNetwork = () => {
       </section>
 
       {/* ================= COMPANY / AGENCY ================= */}
-      <section className="py-24 bg-black">
+      <section className="section-shell bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               Collaborate as{" "}
-              <span className="text-[#C9A94D]">Company / Agency</span>
+              <span className="text-primary">Company / Agency</span>
             </h2>
 
-            <p className="text-gray-400 mb-6">
+            <p className="mb-6 text-muted-foreground">
               Ideal for IT firms, SaaS teams, agencies, colleges, and institutions
               looking to collaborate on delivery, white-label execution, or joint initiatives.
             </p>
 
-            <ul className="space-y-3 text-gray-400 mb-10">
+            <ul className="mb-10 space-y-3 text-muted-foreground">
               <li>• Strategic delivery & execution partnerships</li>
               <li>• White-label or co-branded engagements</li>
               <li>• College & institutional collaborations</li>
@@ -150,10 +144,7 @@ const JoinNetwork = () => {
               asChild
               size="lg"
               className="
-                bg-[#C9A94D] text-black
-                hover:bg-[#b89a3f]
-                font-semibold px-8
-                shadow-[0_0_25px_rgba(201,169,77,0.4)]
+                px-8 font-semibold
               "
             >
               <a href={COLLAB_FORM_URL} target="_blank" rel="noreferrer">
@@ -164,26 +155,25 @@ const JoinNetwork = () => {
         </div>
       </section>
 
-      {/* GOLD DIVIDER */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#C9A94D]/60 to-transparent" />
+      <div className="gold-divider" />
 
       {/* ================= TALENT ================= */}
-      <section className="py-24 bg-[#0b0b0b]">
+      <section className="section-shell bg-[#F7F9FC]">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               Join as{" "}
-              <span className="text-[#C9A94D]">
+              <span className="text-primary">
                 Freelancer / Student / Professional
               </span>
             </h2>
 
-            <p className="text-gray-400 mb-6">
+            <p className="mb-6 text-muted-foreground">
               Learn from real projects, earn from your skills, and grow your
               portfolio in a structured, high-trust environment.
             </p>
 
-            <ul className="space-y-3 text-gray-400 mb-10">
+            <ul className="mb-10 space-y-3 text-muted-foreground">
               <li>• Access to premium projects across 15+ service domains</li>
               <li>• Mentorship, reviews & guided learning paths</li>
               <li>• Flexible engagement — part-time, project-based, weekends</li>
@@ -194,10 +184,7 @@ const JoinNetwork = () => {
               asChild
               size="lg"
               className="
-                bg-[#C9A94D] text-black
-                hover:bg-[#b89a3f]
-                font-semibold px-8
-                shadow-[0_0_25px_rgba(201,169,77,0.4)]
+                px-8 font-semibold
               "
             >
               <a href={TALENT_FORM_URL} target="_blank" rel="noreferrer">
