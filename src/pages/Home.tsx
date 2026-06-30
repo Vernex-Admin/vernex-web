@@ -20,7 +20,6 @@ import {
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -39,20 +38,24 @@ const stagger: Variants = {
 const subBrands = [
   {
     id: "gen-technologies",
-    title: "Vernex Gen Technologies",
+    title: "Vernex Technologies",
+    tagline: "Build Smarter. Operate Faster.",
     description:
-      "Business software, SaaS products, automation systems, BI dashboards, ERP systems, and AI-powered tools for schools, restaurants, clinics, retail shops, and growing businesses.",
-    button: "View Tech Solutions",
-    href: "/gen-technologies",
+      "We design digital infrastructure that helps businesses simplify operations, improve efficiency, and create scalable systems for long-term growth.",
+    services: "Business software • Automation • SaaS • AI Solutions • Dashboards • Enterprise Systems",
+    button: "Explore Technology",
+    href: "/vernex-ecosystem",
     icon: MonitorCog,
   },
   {
     id: "digital-marketing",
-    title: "Vernex Digital Marketing",
+    title: "Vernex Creative Lab",
+    tagline: "Build Presence. Create Demand.",
     description:
-      "Branding, content creation, social media management, website development, paid campaigns, personal branding, and digital growth support for businesses and founders.",
-    button: "View Marketing Services",
-    href: "/digital-marketing",
+      "From brand identity to content and performance campaigns, we help businesses establish authority, attract customers, and accelerate digital growth.",
+    services: "Branding • Content • Social Media • Websites • Campaigns • Growth Strategy",
+    button: "Explore Solutions",
+    href: "/services",
     icon: Megaphone,
   },
 ];
@@ -144,18 +147,8 @@ const whyCards = [
 const Home = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
-      <section
-        className="relative flex min-h-[88vh] items-center justify-center px-4 py-28 text-center"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(6,26,58,0.82), rgba(11,36,84,0.72)),
-            url(${heroBg})
-          `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-[#061A3A]/10" />
+      <section className="relative flex min-h-[88vh] items-center justify-center bg-[#050505] px-4 py-28 text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,179,106,0.08),transparent_38%)]" />
 
         <motion.div
           className="relative z-10 mx-auto max-w-5xl"
@@ -163,12 +156,18 @@ const Home = () => {
           initial="hidden"
           animate="show"
         >
+          <motion.img
+            variants={fadeUp}
+            src="/vernex-logo-main.png"
+            alt="Vernex"
+            className="logo-gold-glow mx-auto mb-8 h-auto w-full max-w-[270px] object-contain md:max-w-[360px]"
+          />
           <motion.div
             variants={fadeUp}
             className="mb-6 inline-flex rounded-full border border-[#D8B36A]/45 bg-white/10 px-5 py-1.5"
           >
             <span className="text-sm font-medium text-[#F4E4B8]">
-              Vernex Technology + Digital Marketing
+              Vernex • Digital Growth • Automation • Technology
             </span>
           </motion.div>
 
@@ -176,16 +175,16 @@ const Home = () => {
             variants={fadeUp}
             className="mx-auto mb-6 max-w-5xl break-words font-heading text-[clamp(1.85rem,8vw,4.6rem)] font-bold leading-tight text-white"
           >
-            Technology, Automation, and Digital Growth Solutions for Modern Businesses
+            Building Digital Systems That Make Businesses Elevate
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mx-auto mb-10 max-w-3xl break-words text-base leading-relaxed text-white/88 md:text-xl"
           >
-            Vernex builds business software, automation systems, dashboards,
-            websites, content, and digital marketing solutions that help
-            businesses operate better, look more professional, and grow faster.
+            From websites and software to automation, content, and growth
+            strategies — Vernex helps ambitious businesses streamline
+            operations, elevate their brand presence, and unlock measurable growth.
           </motion.p>
 
           <motion.div
@@ -195,10 +194,10 @@ const Home = () => {
             <Button
               asChild
               size="lg"
-              className="w-full bg-white px-8 py-5 font-semibold text-[#0B2454] hover:bg-[#F4E4B8] sm:w-auto"
+              className="w-full bg-[#D8B36A] px-8 py-5 font-semibold text-[#050505] hover:bg-[#F4E4B8] sm:w-auto"
             >
-              <Link to="/gen-technologies">
-                Explore Gen Technologies <ArrowRight className="ml-2" size={18} />
+              <Link to="/contact">
+                Start Your Project <ArrowRight className="ml-2" size={18} />
               </Link>
             </Button>
 
@@ -208,7 +207,7 @@ const Home = () => {
               variant="outline"
               className="w-full border border-white/60 bg-transparent px-8 py-5 font-semibold text-white hover:border-[#D8B36A] hover:bg-[#D8B36A] hover:text-[#061A3A] sm:w-auto"
             >
-              <Link to="/digital-marketing">Explore Digital Marketing</Link>
+              <Link to="/services">Explore Services</Link>
             </Button>
           </motion.div>
         </motion.div>
@@ -232,13 +231,15 @@ const Home = () => {
                 variants={fadeUp}
                 className="corporate-card corporate-card-hover scroll-mt-28 p-8"
               >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-secondary text-primary">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-[#D8B36A]/35 bg-[#050505] text-white">
                   <brand.icon size={30} />
                 </div>
                 <h2 className="mb-4 text-2xl font-bold text-primary md:text-3xl">
                   {brand.title}
                 </h2>
+                <p className="mb-3 font-semibold text-foreground">{brand.tagline}</p>
                 <p className="mb-7 leading-relaxed">{brand.description}</p>
+                <p className="mb-7 text-sm font-medium text-muted-foreground">{brand.services}</p>
                 <Button asChild>
                   <Link to={brand.href}>
                     {brand.button} <ArrowRight size={16} />
@@ -260,11 +261,10 @@ const Home = () => {
             className="mx-auto mb-14 max-w-3xl text-center"
           >
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Software Products Built for Real Business Operations
+              Software That Powers Everyday Business
             </h2>
             <p>
-              Vernex products are designed around practical business workflows,
-              cleaner records, and faster decision-making.
+              Practical systems built to streamline operations and support sustainable growth.
             </p>
           </motion.div>
 
@@ -282,7 +282,7 @@ const Home = () => {
                 className="corporate-card corporate-card-hover flex h-full flex-col p-7"
               >
                 <div className="mb-5 flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary text-primary">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#D8B36A]/35 bg-[#050505] text-white">
                     <product.icon size={26} />
                   </div>
                   <span className="rounded-full border border-accent/40 bg-secondary/70 px-3 py-1 text-xs font-semibold text-primary">
@@ -319,7 +319,7 @@ const Home = () => {
                 variants={fadeUp}
                 className="rounded-lg border border-dashed border-primary/20 bg-white p-5"
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-muted text-primary">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[#D8B36A]/35 bg-[#050505] text-white">
                   <product.icon size={22} />
                 </div>
                 <h3 className="mb-3 font-semibold">{product.name}</h3>
@@ -337,11 +337,10 @@ const Home = () => {
           <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="mb-3 text-3xl font-bold md:text-4xl">
-                Digital Marketing Solutions That Make Brands Enquiry-Ready
+                Building Brands That People Remember
               </h2>
               <p className="max-w-2xl">
-                Vernex Digital Marketing improves how your brand looks,
-                communicates, and converts attention into real enquiries.
+                Strategy, content, and digital execution built to strengthen brands and drive results.
               </p>
             </div>
             <Button asChild variant="outline">
@@ -362,7 +361,7 @@ const Home = () => {
                 variants={fadeUp}
                 className="corporate-card corporate-card-hover p-6"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary text-primary">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[#D8B36A]/35 bg-[#050505] text-white">
                   <item.icon size={24} />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
@@ -376,7 +375,7 @@ const Home = () => {
       <section className="section-shell bg-[#F7F9FC]">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Why Vernex</h2>
+            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Why Businesses Choose Vernex</h2>
             <p>
               A focused execution partner for businesses that need technology,
               marketing, and growth systems without unnecessary complexity.
@@ -396,7 +395,7 @@ const Home = () => {
                 variants={fadeUp}
                 className="corporate-card p-6"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary text-primary">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[#D8B36A]/35 bg-[#050505] text-white">
                   <item.icon size={24} />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>

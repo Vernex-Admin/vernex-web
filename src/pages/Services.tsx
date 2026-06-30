@@ -94,7 +94,7 @@ const Services: React.FC = () => {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button asChild size="lg" className="w-full sm:w-auto">
-              <Link to="/digital-marketing">View Packages</Link>
+              <Link to="/vernex-ecosystem">View Vernex Ecosystem</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
               <Link to="/contact">Contact Vernex</Link>

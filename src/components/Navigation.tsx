@@ -3,13 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import logo from "@/assets/vnx-logo.jpg";
+
+const logo = "/vernex-logo-main.png";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Gen Technologies", path: "/gen-technologies" },
-  { name: "Digital Marketing", path: "/digital-marketing" },
-  { name: "Services", path: "/services" },
+  { name: "Vernex Ecosystem", path: "/vernex-ecosystem" },
+  { name: "Marketing Services", path: "/services" },
   { name: "Products", path: "/products" },
   { name: "About", path: "/about" },
   { name: "Social Connect", path: "/social-connect" },
@@ -46,8 +46,10 @@ const Navigation = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.35 }}
-        className={`fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0B2454] text-white ${
-          scrolled ? "shadow-[0_10px_30px_rgba(6,26,58,0.22)]" : "shadow-sm"
+        className={`fixed left-0 right-0 top-0 z-50 border-b border-[rgba(216,179,106,0.25)] bg-[#050505] text-white ${
+          scrolled
+            ? "shadow-[0_12px_32px_rgba(0,0,0,0.48),0_1px_10px_rgba(216,179,106,0.08)]"
+            : "shadow-[0_6px_22px_rgba(0,0,0,0.3)]"
         }`}
       >
         <div className="container mx-auto px-4">
@@ -56,7 +58,7 @@ const Navigation = () => {
               <img
                 src={logo}
                 alt="Vernex"
-                className="h-9 rounded bg-white object-contain p-1 md:h-11"
+                className="logo-gold-glow h-10 w-auto max-w-[180px] object-contain md:h-12 md:max-w-[220px]"
               />
             </Link>
 
@@ -65,7 +67,7 @@ const Navigation = () => {
                 <Link key={item.name} to={item.path} className="group relative py-2">
                   <span
                     className={`text-sm font-medium transition-colors ${
-                      isActive(item.path) ? "text-[#D8B36A]" : "text-white/88 hover:text-[#F4E4B8]"
+                      isActive(item.path) ? "text-[#D8B36A]" : "text-white hover:text-[#D8B36A]"
                     }`}
                   >
                     {item.name}
@@ -80,7 +82,10 @@ const Navigation = () => {
             </div>
 
             <div className="hidden xl:block">
-              <Button asChild variant="secondary" className="px-5">
+              <Button
+                asChild
+                className="border border-[#D8B36A] bg-[#D8B36A] px-5 text-[#050505] hover:bg-[#F4E4B8] hover:text-[#050505]"
+              >
                 <Link to="/contact">Get Started</Link>
               </Button>
             </div>
@@ -88,7 +93,7 @@ const Navigation = () => {
             <button
               type="button"
               onClick={() => setIsOpen((value) => !value)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white xl:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#D8B36A]/40 text-white transition-colors hover:border-[#D8B36A] hover:text-[#D8B36A] xl:hidden"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
             >
@@ -101,7 +106,7 @@ const Navigation = () => {
       <div className="fixed left-0 right-0 top-[64px] z-40 h-[2px] bg-gradient-to-r from-transparent via-[#D8B36A] to-transparent md:top-[80px]" />
 
       {isOpen && (
-        <div className="fixed inset-x-0 top-16 z-40 border-b border-border bg-white px-6 py-6 shadow-[var(--shadow-elevated)] md:top-20 xl:hidden">
+        <div className="fixed inset-x-0 top-16 z-40 border-b border-[#D8B36A]/25 bg-[#0A0A0A] px-6 py-6 shadow-[0_18px_40px_rgba(0,0,0,0.5)] md:top-20 xl:hidden">
           <div className="mx-auto flex max-w-2xl flex-col gap-1">
             {navItems.map((item) => (
               <Link
@@ -110,15 +115,18 @@ const Navigation = () => {
                 onClick={() => setIsOpen(false)}
                 className={`rounded-lg px-3 py-3 text-base font-semibold transition-colors ${
                   isActive(item.path)
-                    ? "bg-secondary/70 text-primary"
-                    : "text-foreground hover:bg-muted hover:text-primary"
+                    ? "bg-[#D8B36A]/10 text-[#D8B36A]"
+                    : "text-white hover:bg-white/5 hover:text-[#D8B36A]"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
 
-            <Button asChild className="mt-4 w-full">
+            <Button
+              asChild
+              className="mt-4 w-full bg-[#D8B36A] text-[#050505] hover:bg-[#F4E4B8] hover:text-[#050505]"
+            >
               <a href="tel:9789912805">Call Now</a>
             </Button>
           </div>

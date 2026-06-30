@@ -11,6 +11,7 @@ import Services from "./pages/Services";
 import GenTechnologies from "./pages/GenTechnologies";
 import Products from "./pages/Products";
 import DigitalMarketing from "./pages/DigitalMarketing";
+import VernexEcosystem from "./pages/VernexEcosystem";
 import JoinNetwork from "@/pages/JoinNetwork";
 import SocialConnect from "./pages/SocialConnect";
 import Contact from "./pages/Contact";
@@ -35,6 +36,7 @@ function App() {
           <Route path="gen-technologies" element={<GenTechnologies />} />
           <Route path="products" element={<Products />} />
           <Route path="digital-marketing" element={<DigitalMarketing />} />
+          <Route path="vernex-ecosystem" element={<VernexEcosystem />} />
           <Route path="services" element={<Services />} />
           <Route path="join-network" element={<JoinNetwork />} />
           <Route path="social-connect" element={<SocialConnect />} />

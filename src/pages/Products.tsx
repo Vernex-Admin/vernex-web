@@ -116,7 +116,7 @@ const Products = () => {
               <Link to="/contact">Request Demo</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-              <Link to="/gen-technologies">View Gen Technologies</Link>
+              <Link to="/vernex-ecosystem">View Vernex Ecosystem</Link>
             </Button>
           </div>
         </div>

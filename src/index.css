@@ -126,11 +126,21 @@
   }
 
   .corporate-card {
-    @apply rounded-lg border border-border bg-white shadow-[var(--shadow-card)] transition-all duration-300;
+    @apply relative overflow-hidden rounded-lg border border-border bg-white shadow-[var(--shadow-card)] transition-all duration-300;
+    background-image: radial-gradient(circle at 100% 0%, rgba(216, 179, 106, 0.08), transparent 28%);
+  }
+
+  .corporate-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
   }
 
   .corporate-card-hover {
-    @apply hover:-translate-y-1 hover:border-accent/50 hover:shadow-[var(--shadow-elevated)];
+    @apply hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_22px_55px_-28px_rgba(6,26,58,0.42),0_8px_28px_-20px_rgba(216,179,106,0.45)];
   }
 
   .hover-gold {
@@ -143,6 +153,49 @@
 
   .hover-glow {
     @apply transition-all duration-300 hover:shadow-[var(--shadow-gold)];
+  }
+
+  .logo-gold-glow {
+    filter:
+      drop-shadow(0 0 5px rgba(216, 179, 106, 0.35))
+      drop-shadow(0 0 10px rgba(216, 179, 106, 0.18));
+    animation: vernexGoldGlow 2.8s ease-in-out infinite;
+  }
+
+  .logo-shine {
+    filter: drop-shadow(0 0 8px rgba(216, 179, 106, 0.2));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .logo-shine:hover {
+    transform: translateY(-3px) scale(1.01);
+    filter: drop-shadow(0 0 14px rgba(216, 179, 106, 0.4));
+  }
+
+  .premium-logo-frame {
+    @apply relative flex items-center justify-center overflow-hidden rounded-xl border border-[#D8B36A]/25 bg-white p-3;
+    box-shadow:
+      0 14px 35px -24px rgba(6, 26, 58, 0.55),
+      0 0 22px rgba(216, 179, 106, 0.12);
+  }
+
+  .premium-logo-frame::after {
+    content: "";
+    position: absolute;
+    inset: -80% -40%;
+    background: linear-gradient(110deg, transparent 42%, rgba(216, 179, 106, 0.2) 50%, transparent 58%);
+    transform: translateX(-55%);
+    animation: logoShineSweep 5.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .brand-division-logo {
+    @apply relative z-[1] h-full w-full object-contain transition-transform duration-500;
+    mix-blend-mode: multiply;
+  }
+
+  .premium-logo-frame:hover .brand-division-logo {
+    transform: scale(1.025);
   }
 
   .glass-effect {
@@ -163,6 +216,35 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes vernexGoldGlow {
+    0%, 100% {
+      filter:
+        drop-shadow(0 0 5px rgba(216, 179, 106, 0.35))
+        drop-shadow(0 0 10px rgba(216, 179, 106, 0.18));
+    }
+    50% {
+      filter:
+        drop-shadow(0 0 9px rgba(216, 179, 106, 0.58))
+        drop-shadow(0 0 16px rgba(216, 179, 106, 0.28));
+    }
+  }
+
+  @keyframes logoShineSweep {
+    0%, 68%, 100% { transform: translateX(-55%); opacity: 0; }
+    76% { opacity: 1; }
+    92% { transform: translateX(55%); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-gold-glow {
+      animation: none;
+    }
+
+    .premium-logo-frame::after {
+      animation: none;
     }
   }
 }
