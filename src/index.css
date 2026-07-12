@@ -125,6 +125,16 @@
     @apply py-16 md:py-24;
   }
 
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    .home-hero-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    }
+  }
+
   .corporate-card {
     @apply relative overflow-hidden rounded-lg border border-border bg-white shadow-[var(--shadow-card)] transition-all duration-300;
     background-image: radial-gradient(circle at 100% 0%, rgba(216, 179, 106, 0.08), transparent 28%);

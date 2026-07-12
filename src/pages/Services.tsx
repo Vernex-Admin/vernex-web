@@ -29,7 +29,7 @@ const Services: React.FC = () => {
               Vernex Digital Marketing
             </motion.p>
             <h1 className="mb-5 text-4xl font-bold text-primary md:text-6xl">
-              Vernex Digital Marketing Services
+              Marketing Services
             </h1>
             <motion.p
               variants={fadeUp}

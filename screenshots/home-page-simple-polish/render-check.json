@@ -1,0 +1,44 @@
+{
+  "desktopHorizontalScroll": false,
+  "mobileHorizontalScroll": false,
+  "homeHasOldCopy": false,
+  "heroGrid": "617.391px 558.594px",
+  "routeChecks": [
+    {
+      "route": "/",
+      "path": "/",
+      "ok": true,
+      "horizontalScroll": false
+    },
+    {
+      "route": "/vernex-ecosystem",
+      "path": "/vernex-ecosystem",
+      "ok": true,
+      "horizontalScroll": false
+    },
+    {
+      "route": "/services",
+      "path": "/services",
+      "ok": true,
+      "horizontalScroll": false
+    },
+    {
+      "route": "/products",
+      "path": "/products",
+      "ok": true,
+      "horizontalScroll": false
+    },
+    {
+      "route": "/about",
+      "path": "/about",
+      "ok": true,
+      "horizontalScroll": false
+    },
+    {
+      "route": "/contact",
+      "path": "/contact",
+      "ok": true,
+      "horizontalScroll": false
+    }
+  ]
+}
