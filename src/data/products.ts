@@ -11,7 +11,7 @@ import biLogo from "@/assets/products/vernex-bi-restaurants.png";
 import clinicLogo from "@/assets/products/vernex-clinic-os.png";
 import schoolLogo from "@/assets/products/vernex-school-erp.png";
 
-export type ProductStatus = "Live / Service-ready" | "Upcoming" | "In Development" | "Demo Coming Soon";
+export type ProductStatus = "Live / Service-ready" | "Upcoming" | "In Development";
 
 export interface Product {
   name: string;
@@ -100,7 +100,7 @@ export const upcomingProducts: Product[] = [
   },
   {
     name: "Vernex Sales Agent",
-    status: "Demo Coming Soon",
+    status: "Upcoming",
     audience: "Sales teams and customer-facing businesses",
     description:
       "AI-powered sales assistant for WhatsApp, lead handling, follow-ups, and customer conversations.",

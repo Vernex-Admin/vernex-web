@@ -1,0 +1,92 @@
+[
+  {
+    "route": "/",
+    "file": "home-desktop.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | VERNEX • DIGITAL GROWTH • AUTOMATION • TECHNOLOGY | Building Digital Systems That Make Businesses Elevate"
+  },
+  {
+    "route": "/",
+    "file": "home-mobile.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/",
+    "firstText": "VERNEX • DIGITAL GROWTH • AUTOMATION • TECHNOLOGY | Building Digital Systems That Make Businesses Elevate | From websites and software to automation, content, and growth strategies — Vernex helps ambitious businesses streamline operations, elevate their brand presence, and unlock measurable growth. | Start Your Project | Explore Marketing Services | Technology Systems | ERP, POS, BI dashboards, automation, and custom software. | Growth Execution | Branding, content, websites, ads, and monthly marketing systems. | Business Clarity"
+  },
+  {
+    "route": "/vernex-ecosystem",
+    "file": "ecosystem-desktop.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/vernex-ecosystem",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | VERNEX ECOSYSTEM | One Brand. Two Engines for Business Growth."
+  },
+  {
+    "route": "/vernex-ecosystem",
+    "file": "ecosystem-mobile.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/vernex-ecosystem",
+    "firstText": "VERNEX ECOSYSTEM | One Brand. Two Engines for Business Growth. | Vernex brings together technology systems and digital growth execution through two focused divisions — Vernex Gen Technologies and Vernex Digital Marketing. | SOFTWARE · AUTOMATION · INTELLIGENCE · BRANDING · CONTENT · GROWTH | Explore Ecosystem | Start Your Project | ONE CONNECTED ADVANTAGE | The Vernex Ecosystem | Practical technology and market-facing digital execution, designed to work together. | Build Systems"
+  },
+  {
+    "route": "/services",
+    "file": "services-desktop.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/services",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | VERNEX DIGITAL MARKETING | Marketing Services"
+  },
+  {
+    "route": "/products",
+    "file": "products-desktop.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/products",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | VERNEX GEN TECHNOLOGIES | Vernex Software Products"
+  },
+  {
+    "route": "/about",
+    "file": "about-desktop.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/about",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | ABOUT VERNEX | About Vernex"
+  },
+  {
+    "route": "/",
+    "file": "navbar-mobile.png",
+    "screenshot": true,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | VERNEX • DIGITAL GROWTH • AUTOMATION • TECHNOLOGY | Building Digital Systems That Make Businesses Elevate"
+  },
+  {
+    "route": "/social-connect",
+    "file": "social-connect-check",
+    "screenshot": false,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/social-connect",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | SOCIAL CONNECT | Connect With Vernex Online"
+  },
+  {
+    "route": "/contact",
+    "file": "contact-check",
+    "screenshot": false,
+    "hasForbidden": false,
+    "horizontalScroll": false,
+    "path": "/contact",
+    "firstText": "Home | Vernex Ecosystem | Marketing Services | Products | About | Social Connect | Contact | Get Started | CONTACT VERNEX | Start Your Project With Vernex"
+  }
+]

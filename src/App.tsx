@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 
 // 🔽 IMPORTANT: Scroll to top handler
@@ -41,6 +41,10 @@ function App() {
           <Route path="join-network" element={<JoinNetwork />} />
           <Route path="social-connect" element={<SocialConnect />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="revamp" element={<Navigate to="/" replace />} />
+          <Route path="coming-soon" element={<Navigate to="/" replace />} />
+          <Route path="launching-soon" element={<Navigate to="/" replace />} />
+          <Route path="maintenance" element={<Navigate to="/" replace />} />
 
           {/* Legal pages */}
           <Route path="privacy-policy" element={<PrivacyPolicy />} />

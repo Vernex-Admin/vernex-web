@@ -17,7 +17,7 @@ const INSTAGRAM_LINK =
 const WEBSITE_LINK = "http://vernex.in/";
 const LINKEDIN_LINK =
   "https://www.linkedin.com/in/boss-anandaa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app";
-const EMAIL = "vernexmain@gmail.com";
+const EMAIL = "connect@vernex.in";
 const PHONE_NUMBER = "+91 97899 12805";
 const PHONE_NUMBER_TEL = "+919789912805";
 
@@ -107,6 +107,12 @@ const Footer = () => {
               Contact
             </h3>
             <ul className="space-y-4 text-sm text-[#D1D5DB]">
+              <li className="flex items-center gap-3">
+                <Globe size={18} className="text-[#D8B36A]" />
+                <a href={WEBSITE_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-[#D8B36A]">
+                  www.vernex.in
+                </a>
+              </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-[#D8B36A]" />
                 <a href={`mailto:${EMAIL}`} className="hover:text-[#D8B36A]">

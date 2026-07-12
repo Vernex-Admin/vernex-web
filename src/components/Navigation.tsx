@@ -127,7 +127,7 @@ const Navigation = () => {
               asChild
               className="mt-4 w-full bg-[#D8B36A] text-[#050505] hover:bg-[#F4E4B8] hover:text-[#050505]"
             >
-              <a href="tel:9789912805">Call Now</a>
+              <Link to="/contact">Get Started</Link>
             </Button>
           </div>
         </div>

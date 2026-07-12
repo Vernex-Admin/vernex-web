@@ -108,11 +108,60 @@ export const processSteps = [
 
 export const marketingServices = [
   {
+    name: "Digital Marketing",
+    description:
+      "Marketing strategy, SEO, local SEO, Google Business Profile, campaign planning, analytics, and digital growth execution.",
+    benefit: "Build a structured digital presence that supports visibility and enquiries.",
+    icon: BarChart3,
+  },
+  {
     name: "Social Media Management",
     description:
       "Instagram, Facebook, LinkedIn, and YouTube page management with profile optimization, posting, engagement, and monthly reporting.",
     benefit: "Keep your brand active, consistent, and professional.",
     icon: Share2,
+  },
+  {
+    name: "Personal Branding",
+    description:
+      "Founder branding, LinkedIn and Instagram optimization, bio/headline writing, authority content, profile visuals, and audience growth strategy.",
+    benefit: "Build authority, trust, and visibility as a founder or professional.",
+    icon: Sparkles,
+  },
+  {
+    name: "Website Development",
+    description:
+      "Business websites, landing pages, campaign pages, portfolio websites, clinic pages, restaurant pages, and enquiry-focused websites.",
+    benefit: "Convert visitors into calls, WhatsApp messages, and leads.",
+    icon: Globe2,
+  },
+  {
+    name: "Video Editing / Reels",
+    description:
+      "Reels, shorts, ad videos, promotional videos, subtitles, transitions, motion graphics, and platform-ready editing.",
+    benefit: "Turn raw footage into professional videos that attract attention.",
+    icon: Video,
+  },
+  {
+    name: "Graphic Design / Branding",
+    description:
+      "Social media posts, carousels, posters, banners, brochures, visiting cards, brand visuals, and ad creatives.",
+    benefit: "Make your brand look premium and trustworthy.",
+    icon: Palette,
+  },
+  {
+    name: "Event Organization",
+    description:
+      "Event planning support, event posters, registration forms, sponsor branding, social promotion, event coverage, and post-event content.",
+    benefit: "Create more professional event visibility before, during, and after the event.",
+    icon: BriefcaseBusiness,
+  },
+  {
+    name: "Photography / Videography",
+    description:
+      "Product shoots, business profile photos, founder shoots, walkthrough videos, testimonial videos, event coverage, and promotional shoots.",
+    benefit: "Show your products, people, and brand in a professional way.",
+    icon: Camera,
   },
   {
     name: "Content Creation",
@@ -122,60 +171,11 @@ export const marketingServices = [
     icon: PenLine,
   },
   {
-    name: "Video Editing",
+    name: "Paid Campaigns / Growth Strategy",
     description:
-      "Reels, shorts, ad videos, promotional videos, subtitles, transitions, motion graphics, and platform-ready editing.",
-    benefit: "Turn raw footage into professional videos that attract attention.",
-    icon: Video,
-  },
-  {
-    name: "Graphic Design",
-    description:
-      "Social media posts, carousels, posters, banners, brochures, visiting cards, brand visuals, and ad creatives.",
-    benefit: "Make your brand look premium and trustworthy.",
-    icon: Palette,
-  },
-  {
-    name: "Photography",
-    description:
-      "Product shoots, food photography, business profile photos, founder shoots, campaign photos, and edited brand visuals.",
-    benefit: "Show your products, people, and brand in a professional way.",
-    icon: Camera,
-  },
-  {
-    name: "Videography",
-    description:
-      "Business walkthroughs, reel shoots, product videos, customer testimonials, event coverage, and promotional shoots.",
-    benefit: "Help customers understand and remember your brand.",
-    icon: Clapperboard,
-  },
-  {
-    name: "Digital Marketing & Ads",
-    description:
-      "Meta ads, Google ads, SEO, local SEO, Google Business Profile, lead generation, campaign tracking, and analytics.",
+      "Meta ads, Google ads, lead generation, campaign tracking, retargeting, offer planning, and monthly growth strategy.",
     benefit: "Reach the right audience and generate better enquiries.",
-    icon: BarChart3,
-  },
-  {
-    name: "Website & Landing Page Development",
-    description:
-      "Business websites, landing pages, campaign pages, portfolio websites, clinic pages, restaurant pages, and enquiry-focused websites.",
-    benefit: "Convert visitors into calls, WhatsApp messages, and leads.",
-    icon: Globe2,
-  },
-  {
-    name: "Event Marketing & Promotion",
-    description:
-      "Event posters, registration forms, social media promotion, WhatsApp promotion, sponsor branding, event coverage, and post-event reels.",
-    benefit: "Get more attention, registrations, and professional event visibility.",
-    icon: BriefcaseBusiness,
-  },
-  {
-    name: "Personal Branding",
-    description:
-      "Founder branding, LinkedIn and Instagram optimization, bio/headline writing, authority content, profile visuals, and audience growth strategy.",
-    benefit: "Build authority, trust, and visibility as a founder or professional.",
-    icon: Sparkles,
+    icon: Megaphone,
   },
 ];
 
