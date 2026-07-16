@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"console.log\\('tailwind', require\\('tailwindcss/package.json'\\).version\\)\")",
+      "Bash(node -e \"const l=require\\('lucide-react'\\); ['ChartNoAxesColumnIncreasing','MessagesSquare','UserRound','MonitorSmartphone','Clapperboard','Palette','CalendarDays','Camera','FilePenLine','Target','Rocket','Handshake','ArrowRight','CheckCircle2'].forEach\\(n=>console.log\\(n, typeof l[n]==='function'?'OK':'MISSING'\\)\\)\")",
+      "Bash(node -e \"const l=require\\('lucide-react'\\); ['Handshake','HandshakeIcon','Timer','MessagesSquare','MessageSquare','FolderKanban','Workflow','PenTool','Megaphone','Database','LayoutDashboard','Settings','ShieldCheck','Sparkles','Building2','Globe','Users','Rocket'].forEach\\(n=>console.log\\(n, typeof l[n]\\)\\)\")",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1440,3400 '--screenshot=C:\\\\Users\\\\abhin\\\\eco-desktop.png' http://localhost:5199/vernex-ecosystem)",
+      "Bash(echo \"exit=$?\")",
+      "Read(//c/Users/abhin/**)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=430,6400 '--screenshot=C:\\\\Users\\\\abhin\\\\eco-mobile.png' http://localhost:5199/vernex-ecosystem)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=9000 --window-size=1440,3450 '--screenshot=C:\\\\Users\\\\abhin\\\\eco-desktop2.png' http://localhost:5199/vernex-ecosystem)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=3000 --window-size=1440,900 '--screenshot=C:\\\\Users\\\\abhin\\\\eco-hero.png' http://localhost:5199/vernex-ecosystem)",
+      "Bash(node -e \"console.log\\('WS:', typeof WebSocket\\)\")",
+      "Bash(node shot.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-full.png\" 1440 900)",
+      "Bash(node shot.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-mob.png\" 420 760)",
+      "Bash(sed 's/captureBeyondViewport: true/captureBeyondViewport: false/' shot.mjs)",
+      "Bash(node shotvp.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-hero-vp.png\" 1440 820)",
+      "Bash(node shot.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-s2.png\" 1440 900)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:5199/vernex-ecosystem -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(node shot.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-s2b.png\" 1440 900)",
+      "Bash(rm -f /c/Users/abhin/eco-desktop.png /c/Users/abhin/eco-desktop2.png /c/Users/abhin/eco-mobile.png /c/Users/abhin/eco-hero.png /c/Users/abhin/eco-full.png /c/Users/abhin/eco-mob.png /c/Users/abhin/eco-hero-vp.png /c/Users/abhin/eco-s2.png /c/Users/abhin/eco-s2b.png)",
+      "Bash(pkill -f \"vite --port 5199\")",
+      "Bash(pkill -f \"remote-debugging-port\")",
+      "Bash(node shotvp.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-m360.png\" 360 780)",
+      "Bash(node shot.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-m360full.png\" 360 740)",
+      "Bash(node click.mjs \"http://localhost:5199/vernex-ecosystem\" \"C:\\\\\\\\Users\\\\\\\\abhin\\\\\\\\eco-click.png\")"
+    ]
+  }
+}
