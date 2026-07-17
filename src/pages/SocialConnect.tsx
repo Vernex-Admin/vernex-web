@@ -1,26 +1,24 @@
 import { motion } from "framer-motion";
-import type { ComponentType } from "react";
 import {
-  ArrowUpRight,
   Facebook,
   Globe,
   Instagram,
   Linkedin,
   Mail,
+  MessageCircle,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import IntroCard from "../components/social/IntroCard";
+import CTASection from "../components/social/CTASection";
+import SocialCard, {
+  type SocialCardData,
+} from "../components/social/SocialCard";
 
-type SocialLink = {
-  title: string;
-  href: string;
-  icon: ComponentType<{ className?: string }>;
-  external?: boolean;
-  ariaLabel: string;
-};
+const bird = "/favicon.png";
 
-const socialLinks: SocialLink[] = [
+const socialLinks: SocialCardData[] = [
   {
     title: "Website",
+    description: "Explore our official website and discover more about Vernex.",
     href: "https://www.vernex.in",
     icon: Globe,
     external: true,
@@ -28,106 +26,112 @@ const socialLinks: SocialLink[] = [
   },
   {
     title: "WhatsApp",
+    description: "Chat with us directly for quick responses and personalised support.",
     href: "https://wa.me/919789912805",
-    icon: FaWhatsapp,
+    icon: MessageCircle,
     external: true,
     ariaLabel: "Message the Vernex team on WhatsApp",
   },
   {
     title: "Email",
+    description: "Send us an email for enquiries, proposals, or partnership discussions.",
     href: "mailto:connect@vernex.in?subject=Enquiry%20from%20Vernex%20Website",
     icon: Mail,
     ariaLabel: "Send a business enquiry email to Vernex",
   },
   {
     title: "LinkedIn",
-    href: "https://www.linkedin.com/in/boss-anandaa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    description:
+      "Connect with us on LinkedIn for updates, insights, and professional networking.",
+    href: "https://www.linkedin.com/in/boss-anandaa",
     icon: Linkedin,
     external: true,
-    ariaLabel: "Open Vernex LinkedIn",
+    ariaLabel: "Open Vernex on LinkedIn",
   },
   {
     title: "Facebook",
+    description: "Follow us on Facebook for news, updates, and community engagement.",
     href: "#",
     icon: Facebook,
-    ariaLabel: "Open Vernex Facebook",
+    ariaLabel: "Open Vernex on Facebook",
   },
   {
     title: "Instagram",
-    href: "https://www.instagram.com/vernex.in?igsh=MWp6am1vaWoxYjY1NQ==",
+    description:
+      "Follow us on Instagram for the latest highlights and behind-the-scenes.",
+    href: "https://www.instagram.com/vernex.in",
     icon: Instagram,
     external: true,
-    ariaLabel: "Open Vernex Instagram",
+    ariaLabel: "Open Vernex on Instagram",
   },
 ];
 
-const containerVariants = {
+const gridVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const SocialConnect = () => {
+const SocialConnect = (): JSX.Element => {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white pt-20 text-black">
-      <section className="relative min-h-[calc(100svh-5rem)] overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.07),transparent_34%),linear-gradient(180deg,#ffffff_0%,#f4f4f4_55%,#ffffff_100%)]" />
+    <div className="min-h-screen overflow-x-hidden bg-white pt-20 text-foreground">
+      <section className="relative overflow-hidden px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+        {/* Subtle patterned background */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,179,106,0.06),transparent_45%),linear-gradient(180deg,#FFFFFF_0%,#FBFAF7_60%,#FFFFFF_100%)]"
+          aria-hidden="true"
+        />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center">
-          <div className="mb-6 text-center sm:mb-7">
-            <h1 className="text-3xl font-bold text-primary sm:text-4xl lg:text-5xl">
-              Social Media
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col">
+          {/* Hero */}
+          <motion.header
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" as const }}
+            className="mb-10 flex flex-col items-center text-center sm:mb-14"
+          >
+            <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+              Social Connect
             </h1>
-            <p className="mt-2 text-base font-semibold text-neutral-700 sm:text-lg">
-              Connect with us!
+
+            {/* Gold divider with bird */}
+            <div className="mt-5 flex w-full max-w-sm items-center gap-4">
+              <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#D8B36A]" />
+              <img
+                src={bird}
+                alt=""
+                aria-hidden="true"
+                className="h-7 w-7 shrink-0 object-contain"
+              />
+              <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#D8B36A]" />
+            </div>
+
+            <p className="mt-5 max-w-xl text-base text-slate-500 sm:text-lg">
+              Connect with Vernex across every major touchpoint.
             </p>
+          </motion.header>
+
+          {/* Intro card */}
+          <div className="mb-6 sm:mb-8">
+            <IntroCard />
           </div>
 
+          {/* Social cards grid */}
           <motion.div
-            variants={containerVariants}
+            variants={gridVariants}
             initial="hidden"
-            animate="visible"
-            className="flex w-full max-w-5xl flex-col gap-3 sm:gap-4"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
           >
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-
-              return (
-                <motion.a
-                  key={social.title}
-                  variants={cardVariants}
-                  whileHover={{ y: -3, scale: 1.01 }}
-                  href={social.href}
-                  target={social.external ? "_blank" : undefined}
-                  rel={social.external ? "noopener noreferrer" : undefined}
-                  aria-label={social.ariaLabel}
-                  className="group flex min-h-[58px] w-full cursor-pointer items-center gap-3 rounded-full border border-[#D8B36A]/70 bg-neutral-100 px-5 py-3 text-black shadow-[0_0_18px_rgba(216,179,106,0.22),0_12px_28px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] hover:bg-neutral-200 hover:shadow-[0_0_28px_rgba(216,179,106,0.42),0_18px_40px_rgba(0,0,0,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D8B36A] focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:min-h-[66px] sm:gap-4 sm:px-7 md:px-9"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-700 transition-colors group-hover:text-black sm:h-9 sm:w-9">
-                    <Icon className="h-5 w-5 stroke-[2.1]" aria-hidden="true" />
-                  </span>
-
-                  <span className="min-w-0 flex-1 truncate text-base font-bold leading-tight text-black sm:text-lg md:text-xl">
-                    {social.title}
-                  </span>
-
-                  <span className="ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-700 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5 sm:h-9 sm:w-9">
-                    <ArrowUpRight
-                      className="h-4 w-4 sm:h-5 sm:w-5"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </motion.a>
-              );
-            })}
+            {socialLinks.map((social) => (
+              <SocialCard key={social.title} {...social} />
+            ))}
           </motion.div>
+
+          {/* CTA */}
+          <div className="mt-6 sm:mt-8">
+            <CTASection />
+          </div>
         </div>
       </section>
     </div>
